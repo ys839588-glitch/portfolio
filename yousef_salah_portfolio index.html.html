@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yousef Salah — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a18;
+    --ink2: #4a4a46;
+    --ink3: #8a8a84;
+    --paper: #faf9f6;
+    --paper2: #f2f0eb;
+    --paper3: #e8e5de;
+    --gold: #b8933a;
+    --gold-light: #f5edda;
+    --teal: #2a6b6b;
+    --teal-light: #ddf0ef;
+    --accent: #c44b2f;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250,249,246,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--paper3);
+    padding: 0 3rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink2);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 6rem 3rem 4rem;
+    max-width: 1100px; margin: 0 auto;
+    position: relative;
+  }
+  .hero-inner { max-width: 680px; }
+  .hero-eyebrow {
+    font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block; width: 32px; height: 1px;
+    background: var(--gold);
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3.2rem, 7vw, 5.5rem);
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-desc {
+    font-size: 1.1rem;
+    color: var(--ink2);
+    line-height: 1.75;
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+    margin-bottom: 3rem;
+  }
+  .tag {
+    font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 0.35rem 0.85rem;
+    border-radius: 2rem;
+    background: var(--paper2);
+    border: 1px solid var(--paper3);
+    color: var(--ink2);
+  }
+  .tag.highlight { background: var(--gold-light); border-color: #d4b06a; color: #7a5c1a; }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    text-decoration: none;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.85rem 2rem;
+    font-size: 0.85rem; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--gold); transform: translateY(-1px); }
+  .btn-outline {
+    text-decoration: none;
+    border: 1.5px solid var(--ink);
+    color: var(--ink);
+    padding: 0.85rem 2rem;
+    font-size: 0.85rem; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-1px); }
+  .hero-deco {
+    position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+    width: 320px; height: 320px; pointer-events: none;
+    opacity: 0.07;
+  }
+
+  /* SECTION COMMON */
+  section { padding: 6rem 3rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .section-label::before {
+    content: ''; display: inline-block;
+    width: 24px; height: 1px; background: var(--gold);
+  }
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+  .section-intro {
+    font-size: 1.05rem; color: var(--ink2);
+    max-width: 560px; margin-bottom: 4rem;
+    line-height: 1.75;
+  }
+
+  /* ABOUT / PROFILE */
+  #about { background: var(--paper2); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .about-stats {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.5rem; margin-top: 2.5rem;
+  }
+  .stat-box {
+    border-top: 2px solid var(--gold);
+    padding-top: 1rem;
+  }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.4rem; color: var(--ink);
+    line-height: 1;
+  }
+  .stat-label { font-size: 0.8rem; color: var(--ink3); margin-top: 0.25rem; letter-spacing: 0.04em; }
+  .about-text h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem; margin-bottom: 1.25rem;
+  }
+  .about-text p { color: var(--ink2); margin-bottom: 1.25rem; line-height: 1.8; }
+  .skills-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0.75rem; margin-top: 2rem;
+  }
+  .skill-item {
+    display: flex; align-items: center; gap: 0.75rem;
+    font-size: 0.9rem; color: var(--ink2);
+  }
+  .skill-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gold); flex-shrink: 0;
+  }
+
+  /* EXPERIENCE TIMELINE */
+  #experience { background: var(--paper); }
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 8px; bottom: 8px;
+    width: 1px; background: var(--paper3);
+  }
+  .tl-item {
+    position: relative; margin-bottom: 3.5rem; padding-left: 2rem;
+  }
+  .tl-item::before {
+    content: ''; position: absolute; left: -2.4rem; top: 8px;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--gold); border: 2px solid var(--paper);
+    box-shadow: 0 0 0 3px var(--gold-light);
+  }
+  .tl-date {
+    font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.5rem;
+  }
+  .tl-role {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.35rem; margin-bottom: 0.25rem;
+  }
+  .tl-company { font-size: 0.9rem; color: var(--ink3); margin-bottom: 1rem; }
+  .tl-bullets { list-style: none; }
+  .tl-bullets li {
+    font-size: 0.92rem; color: var(--ink2);
+    padding: 0.3rem 0; padding-left: 1rem;
+    position: relative; line-height: 1.6;
+  }
+  .tl-bullets li::before {
+    content: '—'; position: absolute; left: 0;
+    color: var(--paper3); font-size: 0.8rem;
+  }
+
+  /* DESIGN SHOWCASE */
+  #work { background: var(--ink); color: var(--paper); }
+  #work .section-label { color: #c8a855; }
+  #work .section-label::before { background: #c8a855; }
+  #work h2 { color: var(--paper); }
+  #work .section-intro { color: rgba(250,249,246,0.65); }
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .work-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.25s, border-color 0.25s;
+    cursor: default;
+  }
+  .work-card:hover { transform: translateY(-4px); border-color: rgba(184,147,58,0.5); }
+  .work-card-visual {
+    height: 200px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .work-card-body { padding: 1.5rem; }
+  .work-type {
+    font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: #c8a855; margin-bottom: 0.5rem;
+  }
+  .work-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem; color: var(--paper);
+    margin-bottom: 0.5rem;
+  }
+  .work-card p { font-size: 0.88rem; color: rgba(250,249,246,0.6); line-height: 1.65; }
+  .work-tags {
+    display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem;
+  }
+  .work-tag {
+    font-size: 0.72rem; font-weight: 500;
+    padding: 0.25rem 0.65rem;
+    border-radius: 2rem;
+    background: rgba(255,255,255,0.07);
+    color: rgba(250,249,246,0.55);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* Mini Dashboard SVG visual */
+  .dash-preview {
+    width: 100%; height: 100%;
+    background: #141412;
+    padding: 12px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .dash-row { display: flex; gap: 8px; flex: 1; }
+  .dash-tile {
+    background: rgba(255,255,255,0.06);
+    border-radius: 3px;
+    border: 1px solid rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: center;
+    flex: 1; position: relative; overflow: hidden;
+  }
+  .dash-tile-label {
+    position: absolute; bottom: 6px; left: 8px;
+    font-size: 9px; color: rgba(255,255,255,0.35);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    font-family: 'DM Sans', sans-serif;
+  }
+  /* Bar chart simulation */
+  .mini-bars { display: flex; align-items: flex-end; gap: 4px; height: 60%; padding: 0 12px; }
+  .mini-bar { flex: 1; border-radius: 2px 2px 0 0; min-width: 8px; }
+  /* Pie chart simulation */
+  .mini-kpi { text-align: center; }
+  .mini-kpi-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem; color: #c8a855;
+  }
+  .mini-kpi-sub { font-size: 9px; color: rgba(255,255,255,0.35); letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* Excel visual */
+  .excel-preview {
+    width: 100%; height: 100%;
+    background: #1a2a1a;
+    padding: 12px; overflow: hidden;
+  }
+  .xl-row { display: flex; gap: 4px; margin-bottom: 4px; }
+  .xl-cell {
+    flex: 1; height: 18px; border-radius: 2px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+  .xl-cell.header { background: rgba(100,180,100,0.2); border-color: rgba(100,180,100,0.3); }
+  .xl-chart {
+    margin-top: 8px;
+    display: flex; align-items: flex-end; gap: 3px;
+    height: 60px;
+  }
+  .xl-bar { flex: 1; border-radius: 1px 1px 0 0; background: rgba(100,180,100,0.5); }
+
+  /* Process doc visual */
+  .doc-preview {
+    width: 100%; height: 100%;
+    background: #1a1a2a;
+    padding: 16px; display: flex; flex-direction: column; gap: 8px;
+  }
+  .doc-line { height: 8px; border-radius: 4px; background: rgba(255,255,255,0.1); }
+  .doc-line.title { height: 14px; width: 70%; background: rgba(100,140,220,0.3); }
+  .doc-line.short { width: 45%; }
+  .doc-line.med { width: 80%; }
+  .doc-flow {
+    display: flex; align-items: center; gap: 6px; margin-top: 8px;
+  }
+  .doc-node {
+    flex: 1; height: 28px; border-radius: 3px;
+    background: rgba(100,140,220,0.2);
+    border: 1px solid rgba(100,140,220,0.3);
+  }
+  .doc-arrow { color: rgba(255,255,255,0.2); font-size: 12px; }
+
+  /* SKILLS */
+  #skills { background: var(--paper2); }
+  .skills-section-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+  }
+  .skill-category {
+    padding: 2rem;
+    background: var(--paper);
+    border: 1px solid var(--paper3);
+    border-radius: 4px;
+    border-top: 3px solid var(--gold);
+  }
+  .skill-category h4 {
+    font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.25rem;
+  }
+  .skill-bar-item { margin-bottom: 1rem; }
+  .skill-bar-label {
+    display: flex; justify-content: space-between;
+    font-size: 0.85rem; color: var(--ink2);
+    margin-bottom: 0.35rem;
+  }
+  .skill-bar-track {
+    height: 4px; background: var(--paper3);
+    border-radius: 2px; overflow: hidden;
+  }
+  .skill-bar-fill {
+    height: 100%; border-radius: 2px;
+    background: var(--gold);
+    transition: width 1s ease;
+  }
+  .soft-skills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .soft-tag {
+    font-size: 0.8rem; padding: 0.4rem 0.8rem;
+    border: 1px solid var(--paper3);
+    border-radius: 2rem; color: var(--ink2);
+    background: var(--paper2);
+  }
+
+  /* EDUCATION */
+  #education { background: var(--paper); }
+  .edu-card {
+    background: var(--paper2);
+    border: 1px solid var(--paper3);
+    border-radius: 4px; padding: 2.5rem;
+    display: grid; grid-template-columns: auto 1fr;
+    gap: 2rem; align-items: start;
+    border-left: 4px solid var(--gold);
+    max-width: 720px;
+  }
+  .edu-year {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem; color: var(--gold);
+    writing-mode: vertical-rl; text-orientation: mixed;
+    letter-spacing: 0.1em; transform: rotate(180deg);
+  }
+  .edu-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem; margin-bottom: 0.4rem;
+  }
+  .edu-inst { color: var(--ink3); font-size: 0.9rem; margin-bottom: 1.25rem; }
+  .course-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .course-pill {
+    font-size: 0.78rem; padding: 0.3rem 0.7rem;
+    background: var(--paper3); border-radius: 2rem; color: var(--ink2);
+  }
+
+  /* CONTACT */
+  #contact { background: var(--paper2); }
+  .contact-grid {
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: start;
+  }
+  .contact-info h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem; margin-bottom: 1.25rem;
+  }
+  .contact-info p { color: var(--ink2); margin-bottom: 2rem; line-height: 1.8; }
+  .contact-items { display: flex; flex-direction: column; gap: 1.25rem; }
+  .contact-item {
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .contact-icon {
+    width: 42px; height: 42px;
+    background: var(--gold-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-icon svg { width: 18px; height: 18px; stroke: var(--gold); fill: none; stroke-width: 1.8; stroke-linecap: round; }
+  .contact-item-label { font-size: 0.75rem; color: var(--ink3); text-transform: uppercase; letter-spacing: 0.06em; }
+  .contact-item-val { font-size: 0.95rem; color: var(--ink); font-weight: 500; }
+  .availability-card {
+    background: var(--paper);
+    border: 1px solid var(--paper3);
+    border-radius: 4px; padding: 2.5rem;
+    border-top: 3px solid var(--teal);
+  }
+  .avail-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #2e9e6e; display: inline-block; margin-right: 0.5rem;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .avail-status { font-size: 0.85rem; color: #2e9e6e; font-weight: 600; margin-bottom: 1rem; }
+  .avail-card h4 { font-family: 'DM Serif Display', serif; font-size: 1.35rem; margin-bottom: 0.75rem; }
+  .avail-list { list-style: none; }
+  .avail-list li {
+    font-size: 0.9rem; color: var(--ink2); padding: 0.4rem 0;
+    border-bottom: 1px solid var(--paper3);
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .avail-list li:last-child { border-bottom: none; }
+  .avail-check { color: var(--teal); font-size: 0.8rem; font-weight: 700; }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(250,249,246,0.5);
+    text-align: center;
+    padding: 2rem 3rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+  }
+  footer span { color: var(--gold); }
+
+  /* PRINT */
+  @media print {
+    nav, .hero-cta { display: none; }
+    section { padding: 3rem 2rem; }
+    #work { background: #222; }
+    .work-card-visual { display: none; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { gap: 1rem; }
+    section { padding: 4rem 1.5rem; }
+    .hero { padding: 5rem 1.5rem 3rem; }
+    .about-grid, .contact-grid, .skills-section-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-deco { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Yousef Salah</div>
+  <ul class="nav-links">
+    <li><a href="#about">Profile</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section style="padding:0; min-height:100vh; display:flex; align-items:center;">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Business Administration &amp; Data Analytics</div>
+      <h1>Yousef<br><em>Salah</em></h1>
+      <p class="hero-desc">
+        Detail-oriented operations graduate with hands-on experience in data reporting, policy administration, and workflow optimization — bridging business processes with analytical tools.
+      </p>
+      <div class="hero-tags">
+        <span class="tag highlight">Power BI</span>
+        <span class="tag highlight">Microsoft Excel</span>
+        <span class="tag">Operations Management</span>
+        <span class="tag">Insurance Sector</span>
+        <span class="tag">Process Documentation</span>
+        <span class="tag">Data Visualization</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#work" class="btn-primary">View My Work</a>
+        <a href="#contact" class="btn-outline">Get in Touch</a>
+      </div>
+    </div>
+    <svg class="hero-deco" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="150" cy="150" r="140" stroke="#b8933a" stroke-width="1"/>
+      <circle cx="150" cy="150" r="100" stroke="#b8933a" stroke-width="1"/>
+      <circle cx="150" cy="150" r="60" stroke="#b8933a" stroke-width="1"/>
+      <line x1="10" y1="150" x2="290" y2="150" stroke="#b8933a" stroke-width="0.5"/>
+      <line x1="150" y1="10" x2="150" y2="290" stroke="#b8933a" stroke-width="0.5"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ABOUT / PROFILE -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">Personal Profile</div>
+    <div class="about-grid">
+      <div>
+        <h2>Who I Am</h2>
+        <div class="about-stats">
+          <div class="stat-box">
+            <div class="stat-num">3</div>
+            <div class="stat-label">Professional Internships</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">4</div>
+            <div class="stat-label">Years of Study</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">2</div>
+            <div class="stat-label">BI Dashboards Built</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">2026</div>
+            <div class="stat-label">Expected Graduation</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <h3>Business Operations meets Data Intelligence</h3>
+        <p>
+          I am a Business Administration student at Misr University for Science &amp; Technology (MUST), graduating in 2026, with a strong foundation in operational coordination, data reporting, and administrative systems — backed by three focused internships at Misr Insurance and Misr Life Insurance.
+        </p>
+        <p>
+          My career objective is to join a dynamic operations or analytics team where I can apply both my organizational capabilities and my growing technical toolkit — particularly Excel and Power BI — to drive data-informed decisions and improve workflow efficiency.
+        </p>
+        <p>
+          I am fluent in Arabic (native) and English (professional), and comfortable working across cross-functional environments.
+        </p>
+        <div class="skills-grid">
+          <div class="skill-item"><span class="skill-dot"></span>Process Documentation</div>
+          <div class="skill-item"><span class="skill-dot"></span>Data Analysis &amp; Reporting</div>
+          <div class="skill-item"><span class="skill-dot"></span>Records Management</div>
+          <div class="skill-item"><span class="skill-dot"></span>Cross-functional Communication</div>
+          <div class="skill-item"><span class="skill-dot"></span>Workflow Optimization</div>
+          <div class="skill-item"><span class="skill-dot"></span>Regulatory Compliance</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label">Professional Experience</div>
+    <h2>Where I've Worked</h2>
+    <p class="section-intro">Three internships within the Egyptian insurance sector, progressively building depth in operations, HR coordination, and policy administration.</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">Sep – Oct 2025</div>
+        <div class="tl-role">Policy Administration Intern</div>
+        <div class="tl-company">Misr Insurance Company</div>
+        <ul class="tl-bullets">
+          <li>Supported senior administrators in day-to-day operational coordination and scheduling, improving task turnaround efficiency.</li>
+          <li>Maintained and updated comprehensive policy records using Microsoft Excel, ensuring data accuracy and regulatory compliance.</li>
+          <li>Assisted underwriting staff in reviewing insurance applications and verifying policy compliance against corporate guidelines and industry regulations.</li>
+          <li>Applied working knowledge of the full insurance cycle — risk assessment, policy issuance, and claims processing — to enhance workflow accuracy.</li>
+          <li>Collaborated with cross-functional teams, strengthening professional communication and teamwork competencies.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Sep – Oct 2023</div>
+        <div class="tl-role">HR Intern</div>
+        <div class="tl-company">Misr Insurance Company</div>
+        <ul class="tl-bullets">
+          <li>Assisted in coordinating operational tasks across departments, contributing to on-time project delivery.</li>
+          <li>Maintained organised filing systems and supported preparation of internal performance reports.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Aug – Sep 2023</div>
+        <div class="tl-role">Insurance Operations Intern</div>
+        <div class="tl-company">Misr Life Insurance Company</div>
+        <ul class="tl-bullets">
+          <li>Participated in administrative operations supporting life insurance policy management.</li>
+          <li>Assisted in client-facing coordination processes, gaining exposure to customer service protocols and documentation standards.</li>
+          <li>Strengthened Excel-based record-keeping skills through regular maintenance of operational data sheets.</li>
+          <li>Developed working knowledge of insurance policy structures and risk classification processes.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGN SHOWCASE / WORK -->
+<section id="work">
+  <div class="section-inner">
+    <div class="section-label">Design Showcase</div>
+    <h2>Selected Works</h2>
+    <p class="section-intro">Projects that demonstrate my ability to translate raw operational data into clear, decision-ready visualizations and structured business deliverables.</p>
+
+    <!-- FEATURED: Interactive Dashboard -->
+    <div style="margin-bottom:3rem;">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;">
+        <span style="font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#c8a855;border:1px solid rgba(200,168,85,0.4);padding:0.25rem 0.75rem;border-radius:2rem;">Featured Project</span>
+        <span style="font-size:0.8rem;color:rgba(250,249,246,0.45);">Power BI Dashboard — HR Payroll Analytics</span>
+      </div>
+      <div style="background:#0e0e0c;border:1px solid rgba(255,255,255,0.08);border-radius:6px;overflow:hidden;">
+
+        <!-- Dashboard Header Bar -->
+        <div style="background:#161614;border-bottom:1px solid rgba(255,255,255,0.07);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:28px;height:28px;background:rgba(184,147,58,0.2);border-radius:4px;display:flex;align-items:center;justify-content:center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8a855" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </div>
+            <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:rgba(250,249,246,0.9);letter-spacing:0.02em;">HR Payroll Analytics</span>
+            <span style="font-size:11px;color:rgba(250,249,246,0.3);">·</span>
+            <span style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(250,249,246,0.4);">تحليل رواتب الموظفين</span>
+          </div>
+          <!-- Page tabs -->
+          <div style="display:flex;gap:4px;" id="dash-tabs">
+            <button onclick="switchPage(1)" id="tab1" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:4px 12px;border-radius:3px;border:none;cursor:pointer;background:rgba(184,147,58,0.25);color:#c8a855;font-weight:600;">Page 1</button>
+            <button onclick="switchPage(2)" id="tab2" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:4px 12px;border-radius:3px;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.45);">Page 2</button>
+          </div>
+        </div>
+
+        <!-- Slicer Bar -->
+        <div style="background:#131311;border-bottom:1px solid rgba(255,255,255,0.06);padding:8px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+          <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.35);letter-spacing:0.08em;text-transform:uppercase;">Filter by branch</span>
+          <div style="display:flex;gap:6px;" id="branch-filters">
+            <button onclick="filterBranch('All')" id="bf-All" class="bf-btn bf-active" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 10px;border-radius:2rem;border:1px solid rgba(184,147,58,0.5);cursor:pointer;background:rgba(184,147,58,0.18);color:#c8a855;">All</button>
+            <button onclick="filterBranch('Cairo')" id="bf-Cairo" class="bf-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 10px;border-radius:2rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.5);">Cairo</button>
+            <button onclick="filterBranch('Alex')" id="bf-Alex" class="bf-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 10px;border-radius:2rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.5);">Alex</button>
+            <button onclick="filterBranch('Giza')" id="bf-Giza" class="bf-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 10px;border-radius:2rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.5);">Giza</button>
+          </div>
+        </div>
+
+        <!-- Dashboard Body Page 1 -->
+        <div id="dash-page1" style="padding:16px 20px;">
+          <!-- KPI Row -->
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px;">
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:12px 14px;border-top:2px solid #c8a855;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.4);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">متوسط المرتبات · Avg Salary</div>
+              <div id="kpi-avg" style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:#c8a855;line-height:1;">14,250</div>
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.3);margin-top:3px;">EGP / month</div>
+            </div>
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:12px 14px;border-top:2px solid rgba(42,180,150,0.8);">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.4);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">Total Employees</div>
+              <div id="kpi-emp" style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:rgba(42,200,160,0.9);line-height:1;">9</div>
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.3);margin-top:3px;">across branches</div>
+            </div>
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:12px 14px;border-top:2px solid rgba(196,75,47,0.7);">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.4);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">اجمالي المرتبات · Total Payroll</div>
+              <div id="kpi-total" style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:rgba(220,100,70,0.9);line-height:1;">128,250</div>
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.3);margin-top:3px;">EGP / month</div>
+            </div>
+          </div>
+
+          <!-- Charts Row -->
+          <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:12px;">
+            <!-- Bar: Total Salary by Employee -->
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">اجمالي المرتب لكل موظف · Salary by Employee</div>
+              <div style="position:relative;height:160px;"><canvas id="ch-salary-emp" role="img" aria-label="Bar chart of total salary by employee"></canvas></div>
+            </div>
+            <!-- Pie: Salary by Branch -->
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">اجمالي مرتبات كل فرع · Salary by Branch</div>
+              <div style="position:relative;height:130px;"><canvas id="ch-salary-branch" role="img" aria-label="Pie chart of salary split by branch"></canvas></div>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;" id="branch-legend"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard Body Page 2 -->
+        <div id="dash-page2" style="padding:16px 20px;display:none;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+            <!-- Bar: Sick Hours by Employee -->
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">اجمالي ساعات المرضي لكل موظف · Sick Hours / Employee</div>
+              <div style="position:relative;height:150px;"><canvas id="ch-sick-emp" role="img" aria-label="Bar chart of sick hours by employee"></canvas></div>
+            </div>
+            <!-- Bar: Sick Hours by Branch -->
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">اجمالي ساعات المرضي لكل فرع · Sick Hours / Branch</div>
+              <div style="position:relative;height:150px;"><canvas id="ch-sick-branch" role="img" aria-label="Bar chart of sick hours by branch"></canvas></div>
+            </div>
+          </div>
+          <!-- Column: Salary by Job Title -->
+          <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+            <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">اجمالي المرتبات لكل وظيفة · Salary by Job Title</div>
+            <div style="position:relative;height:140px;"><canvas id="ch-salary-job" role="img" aria-label="Column chart of total salary by job title"></canvas></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tags -->
+      <div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1.25rem;">
+        <span class="work-tag">Power BI</span>
+        <span class="work-tag">DAX Measures</span>
+        <span class="work-tag">HR Analytics</span>
+        <span class="work-tag">Pie &amp; Bar Charts</span>
+        <span class="work-tag">KPI Cards</span>
+        <span class="work-tag">Slicers</span>
+        <span class="work-tag">Arabic &amp; English</span>
+        <span class="work-tag">Innovate Theme</span>
+      </div>
+      <p style="font-size:0.88rem;color:rgba(250,249,246,0.5);margin-top:0.75rem;line-height:1.65;">
+        A multi-page Power BI report analyzing employee compensation and sick leave across three Egyptian branches (Cairo, Alexandria, Giza) for Sales Managers, Data Analysts, and HR Specialists. Use the branch filter above to explore how payroll distributes across the organization.
+      </p>
+      <p style="font-size:0.85rem;color:rgba(250,249,246,0.4);margin-top:0.5rem;line-height:1.65;display:flex;align-items:flex-start;gap:0.5rem;">
+        <span style="color:#c8a855;flex-shrink:0;">⌗</span> This data was collected and the Joins and Group By were performed using SQL Server before it was displayed in Power BI.
+      </p>
+    </div>
+
+    <!-- Lower 2-card grid -->
+    <div class="work-grid">
+
+      <!-- Card 2: Excel Reporting -->
+      <div class="work-card">
+        <div class="work-card-visual">
+          <div class="excel-preview">
+            <div style="font-size:9px;color:rgba(100,200,100,0.6);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;font-family:'DM Sans',sans-serif;">Policy Records Tracker</div>
+            <div class="xl-row">
+              <div class="xl-cell header" style="flex:2;"></div>
+              <div class="xl-cell header"></div>
+              <div class="xl-cell header"></div>
+              <div class="xl-cell header"></div>
+            </div>
+            <div class="xl-row"><div class="xl-cell" style="flex:2;"></div><div class="xl-cell"></div><div class="xl-cell"></div><div class="xl-cell"></div></div>
+            <div class="xl-row"><div class="xl-cell" style="flex:2;"></div><div class="xl-cell"></div><div class="xl-cell"></div><div class="xl-cell"></div></div>
+            <div class="xl-row"><div class="xl-cell" style="flex:2;"></div><div class="xl-cell"></div><div class="xl-cell"></div><div class="xl-cell"></div></div>
+            <div class="xl-row"><div class="xl-cell" style="flex:2;"></div><div class="xl-cell"></div><div class="xl-cell"></div><div class="xl-cell"></div></div>
+            <div class="xl-chart">
+              <div class="xl-bar" style="height:40%;"></div>
+              <div class="xl-bar" style="height:75%;"></div>
+              <div class="xl-bar" style="height:55%;"></div>
+              <div class="xl-bar" style="height:90%;"></div>
+              <div class="xl-bar" style="height:65%;"></div>
+              <div class="xl-bar" style="height:35%;"></div>
+              <div class="xl-bar" style="height:80%;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="work-card-body">
+          <div class="work-type">Excel Reporting &amp; Analysis</div>
+          <h3>Insurance Policy Records Management</h3>
+          <p>Structured Excel workbooks built during the policy administration internship at Misr Insurance. Incorporated PivotTables for policy status summaries, VLOOKUP-based cross-referencing for compliance verification, and dynamic charts to track renewal cycles and risk classifications.</p>
+          <div class="work-tags">
+            <span class="work-tag">Excel</span>
+            <span class="work-tag">PivotTables</span>
+            <span class="work-tag">VLOOKUP</span>
+            <span class="work-tag">Data Validation</span>
+            <span class="work-tag">Compliance Reporting</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Process Documentation -->
+      <div class="work-card">
+        <div class="work-card-visual">
+          <div class="doc-preview">
+            <div class="doc-line title"></div>
+            <div style="height:4px;"></div>
+            <div class="doc-line med"></div>
+            <div class="doc-line short"></div>
+            <div class="doc-line med"></div>
+            <div style="height:8px;"></div>
+            <div class="doc-flow">
+              <div class="doc-node"></div>
+              <div class="doc-arrow">→</div>
+              <div class="doc-node"></div>
+              <div class="doc-arrow">→</div>
+              <div class="doc-node"></div>
+            </div>
+            <div style="height:8px;"></div>
+            <div class="doc-line"></div>
+            <div class="doc-line short"></div>
+            <div class="doc-line med"></div>
+            <div class="doc-line" style="width:60%;"></div>
+          </div>
+        </div>
+        <div class="work-card-body">
+          <div class="work-type">Process Documentation</div>
+          <h3>Insurance Workflow &amp; Operational Reports</h3>
+          <p>Structured internal reports and procedural documentation produced across three internship rotations, covering the underwriting review cycle, HR coordination workflows, and life insurance policy management — designed for handoff readiness across departments.</p>
+          <div class="work-tags">
+            <span class="work-tag">Microsoft Word</span>
+            <span class="work-tag">Workflow Mapping</span>
+            <span class="work-tag">Internal Reporting</span>
+            <span class="work-tag">Business Writing</span>
+            <span class="work-tag">SOP Documentation</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const ALL_DATA = {
+  employees: ['Ahmed K.','Sara M.','Omar F.','Nour A.','Karim B.','Hana S.','Tarek R.','Dina W.','Youssef T.'],
+  branches:  ['Cairo','Cairo','Cairo','Alex','Alex','Alex','Giza','Giza','Giza'],
+  jobs:      ['Sales Manager','Data Analyst','HR Specialist','Sales Manager','Data Analyst','HR Specialist','Sales Manager','Data Analyst','HR Specialist'],
+  salaries:  [18000,14000,12000,17000,13500,11500,16500,13000,12750],
+  sickHours: [8,12,6,10,15,9,7,11,14]
+};
+const BRANCH_COLORS = { Cairo:'#c8a855', Alex:'#2ab89a', Giza:'#c44b2f' };
+const JOB_COLORS = { 'Sales Manager':'#c8a855', 'Data Analyst':'#2ab89a', 'HR Specialist':'#c44b2f' };
+let activeBranch = 'All';
+let chartRefs = {};
+
+function getFiltered(branch) {
+  const idx = ALL_DATA.branches.map((b,i) => branch==='All'||b===branch ? i : -1).filter(i=>i>=0);
+  return {
+    employees: idx.map(i=>ALL_DATA.employees[i]),
+    branches:  idx.map(i=>ALL_DATA.branches[i]),
+    jobs:      idx.map(i=>ALL_DATA.jobs[i]),
+    salaries:  idx.map(i=>ALL_DATA.salaries[i]),
+    sickHours: idx.map(i=>ALL_DATA.sickHours[i])
+  };
+}
+
+function fmt(n) { return n.toLocaleString(); }
+
+function updateKPIs(d) {
+  const avg = Math.round(d.salaries.reduce((a,b)=>a+b,0)/d.salaries.length);
+  const total = d.salaries.reduce((a,b)=>a+b,0);
+  document.getElementById('kpi-avg').textContent = fmt(avg);
+  document.getElementById('kpi-emp').textContent = d.employees.length;
+  document.getElementById('kpi-total').textContent = fmt(total);
+}
+
+function mkChart(id, type, labels, datasets, opts) {
+  if (chartRefs[id]) { chartRefs[id].destroy(); }
+  const canvas = document.getElementById(id);
+  if (!canvas) return;
+  chartRefs[id] = new Chart(canvas, {
+    type, data: { labels, datasets },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: type==='pie'||type==='doughnut' ? {} : {
+        x: { ticks: { color:'rgba(250,249,246,0.45)', font:{size:10}, maxRotation:35, autoSkip:false }, grid:{color:'rgba(255,255,255,0.04)'} },
+        y: { ticks: { color:'rgba(250,249,246,0.45)', font:{size:10}, callback: v=>fmt(v) }, grid:{color:'rgba(255,255,255,0.06)'} }
+      },
+      ...opts
+    }
+  });
+}
+
+function renderAll() {
+  const d = getFiltered(activeBranch);
+  updateKPIs(d);
+
+  const empColors = d.branches.map(b=>BRANCH_COLORS[b]+'cc');
+
+  mkChart('ch-salary-emp','bar', d.employees,
+    [{ data: d.salaries, backgroundColor: empColors, borderRadius:3, borderSkipped:false }]);
+
+  const branchTotals = {};
+  d.branches.forEach((b,i)=>{ branchTotals[b]=(branchTotals[b]||0)+d.salaries[i]; });
+  const bLabels=Object.keys(branchTotals), bVals=Object.values(branchTotals);
+  mkChart('ch-salary-branch','doughnut', bLabels,
+    [{ data:bVals, backgroundColor:bLabels.map(b=>BRANCH_COLORS[b]+'dd'), borderWidth:0, hoverOffset:4 }],
+    { plugins:{ legend:{display:false} } });
+
+  const legend = document.getElementById('branch-legend');
+  if(legend) {
+    legend.innerHTML = bLabels.map((b,i)=>
+      `<span style="display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(250,249,246,0.55);font-family:'DM Sans',sans-serif;">
+        <span style="width:8px;height:8px;border-radius:2px;background:${BRANCH_COLORS[b]};"></span>${b} ${Math.round(bVals[i]/bVals.reduce((a,c)=>a+c,0)*100)}%
+      </span>`
+    ).join('');
+  }
+
+  mkChart('ch-sick-emp','bar', d.employees,
+    [{ data:d.sickHours, backgroundColor:empColors, borderRadius:3, borderSkipped:false }]);
+
+  const branchSick = {};
+  d.branches.forEach((b,i)=>{ branchSick[b]=(branchSick[b]||0)+d.sickHours[i]; });
+  const sLabels=Object.keys(branchSick);
+  mkChart('ch-sick-branch','bar', sLabels,
+    [{ data:Object.values(branchSick), backgroundColor:sLabels.map(b=>BRANCH_COLORS[b]+'cc'), borderRadius:3 }]);
+
+  const jobTotals = {};
+  d.jobs.forEach((j,i)=>{ jobTotals[j]=(jobTotals[j]||0)+d.salaries[i]; });
+  const jLabels=Object.keys(jobTotals);
+  mkChart('ch-salary-job','bar', jLabels,
+    [{ data:Object.values(jobTotals), backgroundColor:jLabels.map(j=>JOB_COLORS[j]+'cc'), borderRadius:3 }]);
+}
+
+function switchPage(n) {
+  document.getElementById('dash-page1').style.display = n===1?'block':'none';
+  document.getElementById('dash-page2').style.display = n===2?'block':'none';
+  document.getElementById('tab1').style.background = n===1?'rgba(184,147,58,0.25)':'transparent';
+  document.getElementById('tab1').style.color = n===1?'#c8a855':'rgba(250,249,246,0.45)';
+  document.getElementById('tab1').style.border = n===1?'none':'1px solid rgba(255,255,255,0.1)';
+  document.getElementById('tab2').style.background = n===2?'rgba(184,147,58,0.25)':'transparent';
+  document.getElementById('tab2').style.color = n===2?'#c8a855':'rgba(250,249,246,0.45)';
+  document.getElementById('tab2').style.border = n===2?'none':'1px solid rgba(255,255,255,0.1)';
+  setTimeout(renderAll, 50);
+}
+
+function filterBranch(branch) {
+  activeBranch = branch;
+  document.querySelectorAll('.bf-btn').forEach(b=>{
+    const active = b.id==='bf-'+branch;
+    b.style.background = active?'rgba(184,147,58,0.18)':'transparent';
+    b.style.color = active?'#c8a855':'rgba(250,249,246,0.5)';
+    b.style.borderColor = active?'rgba(184,147,58,0.5)':'rgba(255,255,255,0.1)';
+  });
+  renderAll();
+}
+
+window.addEventListener('load', function() {
+  setTimeout(renderAll, 100);
+});
+</script>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-label">Technical Skills</div>
+    <h2>What I Bring</h2>
+    <p class="section-intro">A blend of data tooling, office productivity, and business operations competencies — built through coursework and real internship environments.</p>
+    <div class="skills-section-grid">
+      <div class="skill-category">
+        <h4>Data &amp; Reporting</h4>
+        <div class="skill-bar-item">
+          <div class="skill-bar-label"><span>Microsoft Excel</span><span>Advanced</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-label"><span>Power BI</span><span>Proficient</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:72%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-label"><span>SQL Server &amp; Database Management</span><span>Proficient</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:68%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-label"><span>PivotTables &amp; VLOOKUP</span><span>Advanced</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-label"><span>Data Visualization</span><span>Proficient</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:75%"></div></div>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h4>Office Productivity</h4>
+        <div class="skill-bar-item">
+          <div class="skill-bar-label"><span>Microsoft Word</span><span>Advanced</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-label"><span>PowerPoint</span><span>Proficient</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:78%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-label"><span>Google Workspace</span><span>Working</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:70%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-label"><span>Outlook &amp; Email</span><span>Proficient</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:82%"></div></div>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h4>Core Competencies</h4>
+        <div class="soft-skills">
+          <span class="soft-tag">Operations Coordination</span>
+          <span class="soft-tag">Records Management</span>
+          <span class="soft-tag">Process Documentation</span>
+          <span class="soft-tag">Risk Assessment (Insurance)</span>
+          <span class="soft-tag">Cross-functional Communication</span>
+          <span class="soft-tag">Regulatory Compliance</span>
+          <span class="soft-tag">Report Writing</span>
+          <span class="soft-tag">Time Management</span>
+          <span class="soft-tag">Arabic (Native)</span>
+          <span class="soft-tag">English (Professional)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-inner">
+    <div class="section-label">Education</div>
+    <h2>Academic Background</h2>
+    <p class="section-intro">Formal training in business administration with applied coursework spanning operations, finance, and strategy.</p>
+    <div class="edu-card">
+      <div class="edu-year">2022 – 2026</div>
+      <div>
+        <h3>Bachelor of Business Administration</h3>
+        <div class="edu-inst">Misr University for Science &amp; Technology (MUST) — Faculty of Business Administration</div>
+        <div class="course-pills">
+          <span class="course-pill">Organizational Behavior</span>
+          <span class="course-pill">Operations Management</span>
+          <span class="course-pill">Business Statistics</span>
+          <span class="course-pill">Financial Accounting</span>
+          <span class="course-pill">Strategic Management</span>
+          <span class="course-pill">Marketing Principles</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label">Get In Touch</div>
+    <h2>Let's Connect</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Open to opportunities in operations, data analytics, and business administration roles.</h3>
+        <p>Whether you're looking for a detail-oriented analyst, a motivated operations coordinator, or a data-driven business graduate — I'd be glad to hear from you. Feel free to reach out through any of the channels below.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.01 2.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Phone</div>
+              <div class="contact-item-val">01226467291</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-val">yousefsalahabbas25@gmail.com</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">LinkedIn</div>
+              <div class="contact-item-val"><a href="https://www.linkedin.com/in/yousef-salah-12742b411" style="color:var(--gold);text-decoration:none;">linkedin.com/in/yousef-salah</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Location</div>
+              <div class="contact-item-val">Benha, Egypt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="availability-card">
+        <div class="avail-status"><span class="avail-dot"></span>Available for opportunities</div>
+        <h4>What I'm looking for</h4>
+        <ul class="avail-list">
+          <li><span class="avail-check">✓</span>Operations Coordinator / Analyst roles</li>
+          <li><span class="avail-check">✓</span>Business Intelligence / Reporting positions</li>
+          <li><span class="avail-check">✓</span>Administrative &amp; Project Support roles</li>
+          <li><span class="avail-check">✓</span>Insurance, Finance, or Consulting sectors</li>
+          <li><span class="avail-check">✓</span>Full-time or internship opportunities</li>
+          <li><span class="avail-check">✓</span>Cairo, Giza, Qalyubia — or remote</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <span>Yousef Salah</span> — Business Administration &amp; Data Analytics Portfolio &nbsp;·&nbsp; Benha, Egypt</p>
+</footer>
+
+</body>
+</html>

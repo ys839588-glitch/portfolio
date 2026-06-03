@@ -1,0 +1,2290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yousef Salah — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a18;
+    --ink2: #4a4a46;
+    --ink3: #8a8a84;
+    --paper: #faf9f6;
+    --paper2: #f2f0eb;
+    --paper3: #e8e5de;
+    --gold: #b8933a;
+    --gold-light: #f5edda;
+    --teal: #2a6b6b;
+    --teal-light: #ddf0ef;
+    --accent: #c44b2f;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250,249,246,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--paper3);
+    padding: 0 3rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink2);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 6rem 3rem 4rem;
+    max-width: 1100px; margin: 0 auto;
+    position: relative;
+  }
+  .hero-inner { max-width: 680px; }
+  .hero-eyebrow {
+    font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block; width: 32px; height: 1px;
+    background: var(--gold);
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3.2rem, 7vw, 5.5rem);
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-desc {
+    font-size: 1.1rem;
+    color: var(--ink2);
+    line-height: 1.75;
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+    margin-bottom: 3rem;
+  }
+  .tag {
+    font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 0.35rem 0.85rem;
+    border-radius: 2rem;
+    background: var(--paper2);
+    border: 1px solid var(--paper3);
+    color: var(--ink2);
+  }
+  .tag.highlight { background: var(--gold-light); border-color: #d4b06a; color: #7a5c1a; }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    text-decoration: none;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.85rem 2rem;
+    font-size: 0.85rem; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--gold); transform: translateY(-1px); }
+  .btn-outline {
+    text-decoration: none;
+    border: 1.5px solid var(--ink);
+    color: var(--ink);
+    padding: 0.85rem 2rem;
+    font-size: 0.85rem; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-1px); }
+  .hero-deco {
+    position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+    width: 320px; height: 320px; pointer-events: none;
+    opacity: 0.07;
+  }
+
+  /* SECTION COMMON */
+  section { padding: 6rem 3rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .section-label::before {
+    content: ''; display: inline-block;
+    width: 24px; height: 1px; background: var(--gold);
+  }
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+  .section-intro {
+    font-size: 1.05rem; color: var(--ink2);
+    max-width: 560px; margin-bottom: 4rem;
+    line-height: 1.75;
+  }
+
+  /* ABOUT / PROFILE */
+  #about { background: var(--paper2); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .about-stats {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.5rem; margin-top: 2.5rem;
+  }
+  .stat-box {
+    border-top: 2px solid var(--gold);
+    padding-top: 1rem;
+  }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.4rem; color: var(--ink);
+    line-height: 1;
+  }
+  .stat-label { font-size: 0.8rem; color: var(--ink3); margin-top: 0.25rem; letter-spacing: 0.04em; }
+  .about-text h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem; margin-bottom: 1.25rem;
+  }
+  .about-text p { color: var(--ink2); margin-bottom: 1.25rem; line-height: 1.8; }
+  .skills-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0.75rem; margin-top: 2rem;
+  }
+  .skill-item {
+    display: flex; align-items: center; gap: 0.75rem;
+    font-size: 0.9rem; color: var(--ink2);
+  }
+  .skill-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gold); flex-shrink: 0;
+  }
+
+  /* EXPERIENCE TIMELINE */
+  #experience { background: var(--paper); }
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 8px; bottom: 8px;
+    width: 1px; background: var(--paper3);
+  }
+  .tl-item {
+    position: relative; margin-bottom: 3.5rem; padding-left: 2rem;
+  }
+  .tl-item::before {
+    content: ''; position: absolute; left: -2.4rem; top: 8px;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--gold); border: 2px solid var(--paper);
+    box-shadow: 0 0 0 3px var(--gold-light);
+  }
+  .tl-date {
+    font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.5rem;
+  }
+  .tl-role {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.35rem; margin-bottom: 0.25rem;
+  }
+  .tl-company { font-size: 0.9rem; color: var(--ink3); margin-bottom: 1rem; }
+  .tl-bullets { list-style: none; }
+  .tl-bullets li {
+    font-size: 0.92rem; color: var(--ink2);
+    padding: 0.3rem 0; padding-left: 1rem;
+    position: relative; line-height: 1.6;
+  }
+  .tl-bullets li::before {
+    content: '—'; position: absolute; left: 0;
+    color: var(--paper3); font-size: 0.8rem;
+  }
+
+  /* DESIGN SHOWCASE */
+  #work { background: var(--ink); color: var(--paper); }
+  #work .section-label { color: #c8a855; }
+  #work .section-label::before { background: #c8a855; }
+  #work h2 { color: var(--paper); }
+  #work .section-intro { color: rgba(250,249,246,0.65); }
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .work-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.25s, border-color 0.25s;
+    cursor: default;
+  }
+  .work-card:hover { transform: translateY(-4px); border-color: rgba(184,147,58,0.5); }
+  .work-card-visual {
+    height: 200px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .work-card-body { padding: 1.5rem; }
+  .work-type {
+    font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: #c8a855; margin-bottom: 0.5rem;
+  }
+  .work-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem; color: var(--paper);
+    margin-bottom: 0.5rem;
+  }
+  .work-card p { font-size: 0.88rem; color: rgba(250,249,246,0.6); line-height: 1.65; }
+  .work-tags {
+    display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem;
+  }
+  .work-tag {
+    font-size: 0.72rem; font-weight: 500;
+    padding: 0.25rem 0.65rem;
+    border-radius: 2rem;
+    background: rgba(255,255,255,0.07);
+    color: rgba(250,249,246,0.55);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* Mini Dashboard SVG visual */
+  .dash-preview {
+    width: 100%; height: 100%;
+    background: #141412;
+    padding: 12px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .dash-row { display: flex; gap: 8px; flex: 1; }
+  .dash-tile {
+    background: rgba(255,255,255,0.06);
+    border-radius: 3px;
+    border: 1px solid rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: center;
+    flex: 1; position: relative; overflow: hidden;
+  }
+  .dash-tile-label {
+    position: absolute; bottom: 6px; left: 8px;
+    font-size: 9px; color: rgba(255,255,255,0.35);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    font-family: 'DM Sans', sans-serif;
+  }
+  /* Bar chart simulation */
+  .mini-bars { display: flex; align-items: flex-end; gap: 4px; height: 60%; padding: 0 12px; }
+  .mini-bar { flex: 1; border-radius: 2px 2px 0 0; min-width: 8px; }
+  /* Pie chart simulation */
+  .mini-kpi { text-align: center; }
+  .mini-kpi-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem; color: #c8a855;
+  }
+  .mini-kpi-sub { font-size: 9px; color: rgba(255,255,255,0.35); letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* Excel visual */
+  .excel-preview {
+    width: 100%; height: 100%;
+    background: #1a2a1a;
+    padding: 12px; overflow: hidden;
+  }
+  .xl-row { display: flex; gap: 4px; margin-bottom: 4px; }
+  .xl-cell {
+    flex: 1; height: 18px; border-radius: 2px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+  .xl-cell.header { background: rgba(100,180,100,0.2); border-color: rgba(100,180,100,0.3); }
+  .xl-chart {
+    margin-top: 8px;
+    display: flex; align-items: flex-end; gap: 3px;
+    height: 60px;
+  }
+  .xl-bar { flex: 1; border-radius: 1px 1px 0 0; background: rgba(100,180,100,0.5); }
+
+  /* Process doc visual */
+  .doc-preview {
+    width: 100%; height: 100%;
+    background: #1a1a2a;
+    padding: 16px; display: flex; flex-direction: column; gap: 8px;
+  }
+  .doc-line { height: 8px; border-radius: 4px; background: rgba(255,255,255,0.1); }
+  .doc-line.title { height: 14px; width: 70%; background: rgba(100,140,220,0.3); }
+  .doc-line.short { width: 45%; }
+  .doc-line.med { width: 80%; }
+  .doc-flow {
+    display: flex; align-items: center; gap: 6px; margin-top: 8px;
+  }
+  .doc-node {
+    flex: 1; height: 28px; border-radius: 3px;
+    background: rgba(100,140,220,0.2);
+    border: 1px solid rgba(100,140,220,0.3);
+  }
+  .doc-arrow { color: rgba(255,255,255,0.2); font-size: 12px; }
+
+  /* SKILLS */
+  #skills { background: var(--paper2); }
+  .skills-section-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+  }
+  .skill-category {
+    padding: 2rem;
+    background: var(--paper);
+    border: 1px solid var(--paper3);
+    border-radius: 4px;
+    border-top: 3px solid var(--gold);
+  }
+  .skill-category h4 {
+    font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.25rem;
+  }
+  .skill-bar-item { margin-bottom: 1rem; }
+  .skill-bar-label {
+    display: flex; justify-content: space-between;
+    font-size: 0.85rem; color: var(--ink2);
+    margin-bottom: 0.35rem;
+  }
+  .skill-bar-track {
+    height: 4px; background: var(--paper3);
+    border-radius: 2px; overflow: hidden;
+  }
+  .skill-bar-fill {
+    height: 100%; border-radius: 2px;
+    background: var(--gold);
+    transition: width 1s ease;
+  }
+  .soft-skills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .soft-tag {
+    font-size: 0.8rem; padding: 0.4rem 0.8rem;
+    border: 1px solid var(--paper3);
+    border-radius: 2rem; color: var(--ink2);
+    background: var(--paper2);
+  }
+
+  /* EDUCATION */
+  #education { background: var(--paper); }
+  .edu-card {
+    background: var(--paper2);
+    border: 1px solid var(--paper3);
+    border-radius: 4px; padding: 2.5rem;
+    display: grid; grid-template-columns: auto 1fr;
+    gap: 2rem; align-items: start;
+    border-left: 4px solid var(--gold);
+    max-width: 720px;
+  }
+  .edu-year {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem; color: var(--gold);
+    writing-mode: vertical-rl; text-orientation: mixed;
+    letter-spacing: 0.1em; transform: rotate(180deg);
+  }
+  .edu-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem; margin-bottom: 0.4rem;
+  }
+  .edu-inst { color: var(--ink3); font-size: 0.9rem; margin-bottom: 1.25rem; }
+  .course-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .course-pill {
+    font-size: 0.78rem; padding: 0.3rem 0.7rem;
+    background: var(--paper3); border-radius: 2rem; color: var(--ink2);
+  }
+
+  /* CONTACT */
+  #contact { background: var(--paper2); }
+  .contact-grid {
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: start;
+  }
+  .contact-info h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem; margin-bottom: 1.25rem;
+  }
+  .contact-info p { color: var(--ink2); margin-bottom: 2rem; line-height: 1.8; }
+  .contact-items { display: flex; flex-direction: column; gap: 1.25rem; }
+  .contact-item {
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .contact-icon {
+    width: 42px; height: 42px;
+    background: var(--gold-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-icon svg { width: 18px; height: 18px; stroke: var(--gold); fill: none; stroke-width: 1.8; stroke-linecap: round; }
+  .contact-item-label { font-size: 0.75rem; color: var(--ink3); text-transform: uppercase; letter-spacing: 0.06em; }
+  .contact-item-val { font-size: 0.95rem; color: var(--ink); font-weight: 500; }
+  .availability-card {
+    background: var(--paper);
+    border: 1px solid var(--paper3);
+    border-radius: 4px; padding: 2.5rem;
+    border-top: 3px solid var(--teal);
+  }
+  .avail-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #2e9e6e; display: inline-block; margin-right: 0.5rem;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .avail-status { font-size: 0.85rem; color: #2e9e6e; font-weight: 600; margin-bottom: 1rem; }
+  .avail-card h4 { font-family: 'DM Serif Display', serif; font-size: 1.35rem; margin-bottom: 0.75rem; }
+  .avail-list { list-style: none; }
+  .avail-list li {
+    font-size: 0.9rem; color: var(--ink2); padding: 0.4rem 0;
+    border-bottom: 1px solid var(--paper3);
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .avail-list li:last-child { border-bottom: none; }
+  .avail-check { color: var(--teal); font-size: 0.8rem; font-weight: 700; }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(250,249,246,0.5);
+    text-align: center;
+    padding: 2rem 3rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+  }
+  footer span { color: var(--gold); }
+
+  /* PRINT */
+  @media print {
+    nav, .hero-cta { display: none; }
+    section { padding: 3rem 2rem; }
+    #work { background: #222; }
+    .work-card-visual { display: none; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { gap: 1rem; }
+    section { padding: 4rem 1.5rem; }
+    .hero { padding: 5rem 1.5rem 3rem; }
+    .about-grid, .contact-grid, .skills-section-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-deco { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Yousef Salah</div>
+  <ul class="nav-links">
+    <li><a href="#about">Profile</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section style="padding:0; min-height:100vh; display:flex; align-items:center;">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Business Administration &amp; Data Analytics</div>
+      <h1>Yousef<br><em>Salah</em></h1>
+      <p class="hero-desc">
+        Detail-oriented operations graduate with hands-on experience in data reporting, policy administration, and workflow optimization — bridging business processes with analytical tools.
+      </p>
+      <div class="hero-tags">
+        <span class="tag highlight">Power BI</span>
+        <span class="tag highlight">Microsoft Excel</span>
+        <span class="tag">Operations Management</span>
+        <span class="tag">Insurance Sector</span>
+        <span class="tag">Process Documentation</span>
+        <span class="tag">Data Visualization</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#work" class="btn-primary">View My Work</a>
+        <a href="#contact" class="btn-outline">Get in Touch</a>
+      </div>
+    </div>
+    <svg class="hero-deco" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="150" cy="150" r="140" stroke="#b8933a" stroke-width="1"/>
+      <circle cx="150" cy="150" r="100" stroke="#b8933a" stroke-width="1"/>
+      <circle cx="150" cy="150" r="60" stroke="#b8933a" stroke-width="1"/>
+      <line x1="10" y1="150" x2="290" y2="150" stroke="#b8933a" stroke-width="0.5"/>
+      <line x1="150" y1="10" x2="150" y2="290" stroke="#b8933a" stroke-width="0.5"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ABOUT / PROFILE -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">Personal Profile</div>
+    <div class="about-grid">
+      <div>
+        <h2>Who I Am</h2>
+        <div class="about-stats">
+          <div class="stat-box">
+            <div class="stat-num">3</div>
+            <div class="stat-label">Professional Internships</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">4</div>
+            <div class="stat-label">Years of Study</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">5</div>
+            <div class="stat-label">BI Dashboards Built</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">2026</div>
+            <div class="stat-label">Expected Graduation</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <h3>Business Operations meets Data Intelligence</h3>
+        <p>
+          I am a Business Administration student at Misr University for Science &amp; Technology (MUST), graduating in 2026, with a strong foundation in operational coordination, data reporting, and administrative systems — backed by three focused internships at Misr Insurance and Misr Life Insurance.
+        </p>
+        <p>
+          My career objective is to join a dynamic operations or analytics team where I can apply both my organizational capabilities and my growing technical toolkit — particularly Excel and Power BI — to drive data-informed decisions and improve workflow efficiency.
+        </p>
+        <p>
+          I am fluent in Arabic (native) and English (professional), and comfortable working across cross-functional environments.
+        </p>
+        <div class="skills-grid">
+          <div class="skill-item"><span class="skill-dot"></span>Process Documentation</div>
+          <div class="skill-item"><span class="skill-dot"></span>Data Analysis &amp; Reporting</div>
+          <div class="skill-item"><span class="skill-dot"></span>Records Management</div>
+          <div class="skill-item"><span class="skill-dot"></span>Cross-functional Communication</div>
+          <div class="skill-item"><span class="skill-dot"></span>Workflow Optimization</div>
+          <div class="skill-item"><span class="skill-dot"></span>Regulatory Compliance</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label">Professional Experience</div>
+    <h2>Where I've Worked</h2>
+    <p class="section-intro">Three internships within the Egyptian insurance sector, progressively building depth in operations, HR coordination, and policy administration.</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">Sep – Oct 2025</div>
+        <div class="tl-role">Policy Administration Intern</div>
+        <div class="tl-company">Misr Insurance Company</div>
+        <ul class="tl-bullets">
+          <li>Supported senior administrators in day-to-day operational coordination and scheduling, improving task turnaround efficiency.</li>
+          <li>Maintained and updated comprehensive policy records using Microsoft Excel, ensuring data accuracy and regulatory compliance.</li>
+          <li>Assisted underwriting staff in reviewing insurance applications and verifying policy compliance against corporate guidelines and industry regulations.</li>
+          <li>Applied working knowledge of the full insurance cycle — risk assessment, policy issuance, and claims processing — to enhance workflow accuracy.</li>
+          <li>Collaborated with cross-functional teams, strengthening professional communication and teamwork competencies.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Sep – Oct 2023</div>
+        <div class="tl-role">HR Intern</div>
+        <div class="tl-company">Misr Insurance Company</div>
+        <ul class="tl-bullets">
+          <li>Assisted in coordinating operational tasks across departments, contributing to on-time project delivery.</li>
+          <li>Maintained organised filing systems and supported preparation of internal performance reports.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Aug – Sep 2023</div>
+        <div class="tl-role">Insurance Operations Intern</div>
+        <div class="tl-company">Misr Life Insurance Company</div>
+        <ul class="tl-bullets">
+          <li>Participated in administrative operations supporting life insurance policy management.</li>
+          <li>Assisted in client-facing coordination processes, gaining exposure to customer service protocols and documentation standards.</li>
+          <li>Strengthened Excel-based record-keeping skills through regular maintenance of operational data sheets.</li>
+          <li>Developed working knowledge of insurance policy structures and risk classification processes.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGN SHOWCASE / WORK -->
+<section id="work">
+  <div class="section-inner">
+    <div class="section-label">Design Showcase</div>
+    <h2>Selected Works</h2>
+    <p class="section-intro">Projects that demonstrate my ability to translate raw operational data into clear, decision-ready visualizations and structured business deliverables.</p>
+
+    <!-- FEATURED: Interactive Dashboard -->
+    <div style="margin-bottom:3rem;">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;">
+        <span style="font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#c8a855;border:1px solid rgba(200,168,85,0.4);padding:0.25rem 0.75rem;border-radius:2rem;">Featured Project</span>
+        <span style="font-size:0.8rem;color:rgba(250,249,246,0.45);">Power BI Dashboard — HR Payroll Analytics</span>
+      </div>
+      <div style="background:#0e0e0c;border:1px solid rgba(255,255,255,0.08);border-radius:6px;overflow:hidden;">
+
+        <!-- Dashboard Header Bar -->
+        <div style="background:#161614;border-bottom:1px solid rgba(255,255,255,0.07);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:28px;height:28px;background:rgba(184,147,58,0.2);border-radius:4px;display:flex;align-items:center;justify-content:center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8a855" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </div>
+            <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:rgba(250,249,246,0.9);letter-spacing:0.02em;">HR Payroll Analytics</span>
+            <span style="font-size:11px;color:rgba(250,249,246,0.3);">·</span>
+            <span style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(250,249,246,0.4);">تحليل رواتب الموظفين</span>
+          </div>
+          <!-- Page tabs -->
+          <div style="display:flex;gap:4px;" id="dash-tabs">
+            <button onclick="switchPage(1)" id="tab1" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:4px 12px;border-radius:3px;border:none;cursor:pointer;background:rgba(184,147,58,0.25);color:#c8a855;font-weight:600;">Page 1</button>
+            <button onclick="switchPage(2)" id="tab2" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:4px 12px;border-radius:3px;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.45);">Page 2</button>
+          </div>
+        </div>
+
+        <!-- Slicer Bar -->
+        <div style="background:#131311;border-bottom:1px solid rgba(255,255,255,0.06);padding:8px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+          <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.35);letter-spacing:0.08em;text-transform:uppercase;">Filter by branch</span>
+          <div style="display:flex;gap:6px;" id="branch-filters">
+            <button onclick="filterBranch('All')" id="bf-All" class="bf-btn bf-active" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 10px;border-radius:2rem;border:1px solid rgba(184,147,58,0.5);cursor:pointer;background:rgba(184,147,58,0.18);color:#c8a855;">All</button>
+            <button onclick="filterBranch('Cairo')" id="bf-Cairo" class="bf-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 10px;border-radius:2rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.5);">Cairo</button>
+            <button onclick="filterBranch('Alex')" id="bf-Alex" class="bf-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 10px;border-radius:2rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.5);">Alex</button>
+            <button onclick="filterBranch('Giza')" id="bf-Giza" class="bf-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 10px;border-radius:2rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.5);">Giza</button>
+          </div>
+        </div>
+
+        <!-- Dashboard Body Page 1 -->
+        <div id="dash-page1" style="padding:16px 20px;">
+          <!-- KPI Row -->
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px;">
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:12px 14px;border-top:2px solid #c8a855;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.4);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">متوسط المرتبات · Avg Salary</div>
+              <div id="kpi-avg" style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:#c8a855;line-height:1;">14,250</div>
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.3);margin-top:3px;">EGP / month</div>
+            </div>
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:12px 14px;border-top:2px solid rgba(42,180,150,0.8);">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.4);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">Total Employees</div>
+              <div id="kpi-emp" style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:rgba(42,200,160,0.9);line-height:1;">9</div>
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.3);margin-top:3px;">across branches</div>
+            </div>
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:12px 14px;border-top:2px solid rgba(196,75,47,0.7);">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.4);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">اجمالي المرتبات · Total Payroll</div>
+              <div id="kpi-total" style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:rgba(220,100,70,0.9);line-height:1;">128,250</div>
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.3);margin-top:3px;">EGP / month</div>
+            </div>
+          </div>
+
+          <!-- Charts Row -->
+          <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:12px;">
+            <!-- Bar: Total Salary by Employee -->
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">اجمالي المرتب لكل موظف · Salary by Employee</div>
+              <div style="position:relative;height:160px;"><canvas id="ch-salary-emp" role="img" aria-label="Bar chart of total salary by employee"></canvas></div>
+            </div>
+            <!-- Pie: Salary by Branch -->
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">اجمالي مرتبات كل فرع · Salary by Branch</div>
+              <div style="position:relative;height:130px;"><canvas id="ch-salary-branch" role="img" aria-label="Pie chart of salary split by branch"></canvas></div>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;" id="branch-legend"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard Body Page 2 -->
+        <div id="dash-page2" style="padding:16px 20px;display:none;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+            <!-- Bar: Sick Hours by Employee -->
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">اجمالي ساعات المرضي لكل موظف · Sick Hours / Employee</div>
+              <div style="position:relative;height:150px;"><canvas id="ch-sick-emp" role="img" aria-label="Bar chart of sick hours by employee"></canvas></div>
+            </div>
+            <!-- Bar: Sick Hours by Branch -->
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">اجمالي ساعات المرضي لكل فرع · Sick Hours / Branch</div>
+              <div style="position:relative;height:150px;"><canvas id="ch-sick-branch" role="img" aria-label="Bar chart of sick hours by branch"></canvas></div>
+            </div>
+          </div>
+          <!-- Column: Salary by Job Title -->
+          <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+            <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">اجمالي المرتبات لكل وظيفة · Salary by Job Title</div>
+            <div style="position:relative;height:140px;"><canvas id="ch-salary-job" role="img" aria-label="Column chart of total salary by job title"></canvas></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tags -->
+      <div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1.25rem;">
+        <span class="work-tag">Power BI</span>
+        <span class="work-tag">DAX Measures</span>
+        <span class="work-tag">HR Analytics</span>
+        <span class="work-tag">Pie &amp; Bar Charts</span>
+        <span class="work-tag">KPI Cards</span>
+        <span class="work-tag">Slicers</span>
+        <span class="work-tag">Arabic &amp; English</span>
+        <span class="work-tag">Innovate Theme</span>
+      </div>
+      <p style="font-size:0.88rem;color:rgba(250,249,246,0.5);margin-top:0.75rem;line-height:1.65;">
+        A multi-page Power BI report analyzing employee compensation and sick leave across three Egyptian branches (Cairo, Alexandria, Giza) for Sales Managers, Data Analysts, and HR Specialists. Use the branch filter above to explore how payroll distributes across the organization.
+      </p>
+      <p style="font-size:0.85rem;color:rgba(250,249,246,0.4);margin-top:0.5rem;line-height:1.65;display:flex;align-items:flex-start;gap:0.5rem;">
+        <span style="color:#c8a855;flex-shrink:0;">⌗</span> This data was collected and the Joins and Group By were performed using SQL Server before it was displayed in Power BI.
+      </p>
+    </div>
+
+    <!-- FEATURED: Dashboard 2 - Sales Analytics -->
+    <div style="margin-bottom:3rem;">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;">
+        <span style="font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#c8a855;border:1px solid rgba(200,168,85,0.4);padding:0.25rem 0.75rem;border-radius:2rem;">Featured Project</span>
+        <span style="font-size:0.8rem;color:rgba(250,249,246,0.45);">Power BI Dashboard — Sales Analytics</span>
+      </div>
+      <div style="background:#0e0e0c;border:1px solid rgba(255,255,255,0.08);border-radius:6px;overflow:hidden;">
+
+        <!-- Header -->
+        <div style="background:#161614;border-bottom:1px solid rgba(255,255,255,0.07);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:28px;height:28px;background:rgba(144,108,17,0.25);border-radius:4px;display:flex;align-items:center;justify-content:center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#906C11" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:rgba(250,249,246,0.9);">Sales Analytics Dashboard</span>
+            <span style="font-size:11px;color:rgba(250,249,246,0.3);">·</span>
+            <span style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(250,249,246,0.4);">تحليل المبيعات</span>
+          </div>
+          <div style="display:flex;gap:4px;">
+            <button onclick="switchSalesPage(1)" id="stab1" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:4px 12px;border-radius:3px;border:none;cursor:pointer;background:rgba(144,108,17,0.3);color:#c8a855;font-weight:600;">Overview</button>
+            <button onclick="switchSalesPage(2)" id="stab2" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:4px 12px;border-radius:3px;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.45);">Details</button>
+          </div>
+        </div>
+
+        <!-- Slicer -->
+        <div style="background:#131311;border-bottom:1px solid rgba(255,255,255,0.06);padding:8px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+          <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.35);letter-spacing:0.08em;text-transform:uppercase;">Filter by branch</span>
+          <div style="display:flex;gap:6px;">
+            <button onclick="filterSalesBranch('All')" id="sb-All" class="sb-btn sb-active" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 10px;border-radius:2rem;border:1px solid rgba(144,108,17,0.5);cursor:pointer;background:rgba(144,108,17,0.2);color:#c8a855;">All</button>
+            <button onclick="filterSalesBranch('Cairo')" id="sb-Cairo" class="sb-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 10px;border-radius:2rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.5);">Cairo</button>
+            <button onclick="filterSalesBranch('Alex')" id="sb-Alex" class="sb-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 10px;border-radius:2rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.5);">Alex</button>
+          </div>
+        </div>
+
+        <!-- Page 1: Overview -->
+        <div id="sales-page1" style="padding:16px 20px;">
+          <!-- KPI Row -->
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px;">
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:12px 14px;border-top:2px solid #906C11;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.4);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">Total Revenue</div>
+              <div id="s-kpi-rev" style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:#c8a855;line-height:1;">243,500</div>
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.3);margin-top:3px;">EGP</div>
+            </div>
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:12px 14px;border-top:2px solid #BBDADA;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.4);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">Total Cups Sold</div>
+              <div id="s-kpi-cups" style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:#BBDADA;line-height:1;">4,870</div>
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.3);margin-top:3px;">units</div>
+            </div>
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:12px 14px;border-top:2px solid #803232;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.4);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">Top Branch</div>
+              <div id="s-kpi-branch" style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:rgba(200,100,80,0.9);line-height:1;">Cairo</div>
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.3);margin-top:3px;">by revenue</div>
+            </div>
+          </div>
+          <!-- Charts Row -->
+          <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:12px;">
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">Daily Sales</div>
+              <div style="position:relative;height:160px;"><canvas id="s-ch-daily"></canvas></div>
+            </div>
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">Sales By Branch</div>
+              <div style="position:relative;height:130px;"><canvas id="s-ch-branch"></canvas></div>
+              <div style="display:flex;gap:12px;margin-top:8px;" id="s-branch-legend"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 2: Details -->
+        <div id="sales-page2" style="padding:16px 20px;display:none;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">Top Selling Products</div>
+              <div style="position:relative;height:150px;"><canvas id="s-ch-products"></canvas></div>
+            </div>
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">Product Demand (Funnel)</div>
+              <div id="s-funnel" style="height:150px;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:0 8px;"></div>
+            </div>
+          </div>
+          <!-- Branch Sales Details Table -->
+          <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+            <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">Branch Sales Details</div>
+            <table id="s-table" style="width:100%;border-collapse:collapse;font-family:'DM Sans',sans-serif;font-size:12px;"></table>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1.25rem;">
+        <span class="work-tag">Power BI</span>
+        <span class="work-tag">Sales Analytics</span>
+        <span class="work-tag">Line Chart</span>
+        <span class="work-tag">Donut Chart</span>
+        <span class="work-tag">Funnel Visual</span>
+        <span class="work-tag">Pivot Table</span>
+        <span class="work-tag">KPI Cards</span>
+        <span class="work-tag">Slicer</span>
+        <span class="work-tag">SQL Server</span>
+      </div>
+      <p style="font-size:0.88rem;color:rgba(250,249,246,0.5);margin-top:0.75rem;line-height:1.65;">
+        A sales analytics report tracking daily revenue, top-selling products, and branch-level performance across Cairo and Alexandria. Built on SQL Server–prepared data using Joins and Group By, then visualized in Power BI with line trends, donut splits, a funnel for product demand, and a detailed pivot table.
+      </p>
+      <p style="font-size:0.85rem;color:rgba(250,249,246,0.4);margin-top:0.5rem;line-height:1.65;display:flex;align-items:flex-start;gap:0.5rem;">
+        <span style="color:#c8a855;flex-shrink:0;">⌗</span> This data was collected and the Joins and Group By were performed using SQL Server before it was displayed in Power BI.
+      </p>
+    </div>
+
+<script>
+const SALES_DATA = {
+  dates: ['Jan 1','Jan 5','Jan 10','Jan 15','Jan 20','Jan 25','Jan 30'],
+  cairo_rev: [18400,21000,19500,24000,22800,26500,23700],
+  alex_rev:  [13200,15800,14200,17500,16400,19200,17100],
+  products: ['Espresso','Latte','Cappuccino','Americano','Cold Brew'],
+  product_qty: [1340,980,860,720,560],
+  product_rev_cairo: [28000,19600,17200,14400,11200],
+  product_rev_alex:  [20100,14000,12300,10300,8000],
+};
+const SBRANCH_COLORS = { Cairo:'#906C11', Alex:'#505D5D' };
+let salesBranch = 'All';
+let sChartRefs = {};
+
+function getSalesFiltered(branch) {
+  if (branch === 'Cairo') return { rev: SALES_DATA.cairo_rev, cups: SALES_DATA.cairo_rev.map(v=>Math.round(v/50)), topBranch:'Cairo' };
+  if (branch === 'Alex')  return { rev: SALES_DATA.alex_rev,  cups: SALES_DATA.alex_rev.map(v=>Math.round(v/50)),  topBranch:'Alex' };
+  return {
+    rev: SALES_DATA.cairo_rev.map((v,i)=>v+SALES_DATA.alex_rev[i]),
+    cups: SALES_DATA.cairo_rev.map((v,i)=>Math.round((v+SALES_DATA.alex_rev[i])/50)),
+    topBranch:'Cairo'
+  };
+}
+
+function fmtS(n) { return n.toLocaleString(); }
+
+function mkSChart(id, type, labels, datasets, opts) {
+  if (sChartRefs[id]) sChartRefs[id].destroy();
+  const canvas = document.getElementById(id);
+  if (!canvas) return;
+  sChartRefs[id] = new Chart(canvas, {
+    type, data:{labels,datasets},
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{legend:{display:false}},
+      scales: type==='pie'||type==='doughnut' ? {} : {
+        x:{ticks:{color:'rgba(250,249,246,0.45)',font:{size:10}},grid:{color:'rgba(255,255,255,0.04)'}},
+        y:{ticks:{color:'rgba(250,249,246,0.45)',font:{size:10},callback:v=>fmtS(v)},grid:{color:'rgba(255,255,255,0.06)'}}
+      },
+      ...(opts||{})
+    }
+  });
+}
+
+function renderSalesAll() {
+  const d = getSalesFiltered(salesBranch);
+  const totalRev = d.rev.reduce((a,b)=>a+b,0);
+  const totalCups = d.cups.reduce((a,b)=>a+b,0);
+  document.getElementById('s-kpi-rev').textContent = fmtS(totalRev);
+  document.getElementById('s-kpi-cups').textContent = fmtS(totalCups);
+  document.getElementById('s-kpi-branch').textContent = d.topBranch;
+
+  // Line chart
+  mkSChart('s-ch-daily','line', SALES_DATA.dates, [{
+    data: d.rev,
+    borderColor:'#906C11', backgroundColor:'rgba(144,108,17,0.1)',
+    tension:0.4, fill:true, pointBackgroundColor:'#906C11', pointRadius:3
+  }]);
+
+  // Donut: branch split
+  const cairoTotal = SALES_DATA.cairo_rev.reduce((a,b)=>a+b,0);
+  const alexTotal  = SALES_DATA.alex_rev.reduce((a,b)=>a+b,0);
+  const branchLabels = salesBranch==='All' ? ['Cairo','Alex'] : [salesBranch];
+  const branchVals   = salesBranch==='All' ? [cairoTotal,alexTotal] : salesBranch==='Cairo' ? [cairoTotal] : [alexTotal];
+  mkSChart('s-ch-branch','doughnut', branchLabels,
+    [{data:branchVals, backgroundColor:branchLabels.map(b=>SBRANCH_COLORS[b]+'dd'), borderWidth:0, hoverOffset:4}]);
+  const leg = document.getElementById('s-branch-legend');
+  if(leg) leg.innerHTML = branchLabels.map((b,i)=>
+    `<span style="display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(250,249,246,0.55);font-family:'DM Sans',sans-serif;">
+      <span style="width:8px;height:8px;border-radius:2px;background:${SBRANCH_COLORS[b]};"></span>${b} ${Math.round(branchVals[i]/branchVals.reduce((a,c)=>a+c,0)*100)}%
+    </span>`).join('');
+
+  // Products bar
+  const pRev = salesBranch==='Cairo' ? SALES_DATA.product_rev_cairo
+             : salesBranch==='Alex'  ? SALES_DATA.product_rev_alex
+             : SALES_DATA.product_rev_cairo.map((v,i)=>v+SALES_DATA.product_rev_alex[i]);
+  mkSChart('s-ch-products','bar', SALES_DATA.products,
+    [{data:pRev, backgroundColor:['#906C11cc','#505D5Dcc','#BBDADA99','#803232cc','#67524Ccc'], borderRadius:3}]);
+
+  // Funnel
+  const funnel = document.getElementById('s-funnel');
+  if(funnel) {
+    const maxQ = Math.max(...SALES_DATA.product_qty);
+    funnel.innerHTML = SALES_DATA.products.map((p,i)=>{
+      const pct = Math.round(SALES_DATA.product_qty[i]/maxQ*100);
+      const colors = ['#906C11','#505D5D','#BBDADA','#803232','#67524C'];
+      return `<div style="display:flex;align-items:center;gap:8px;">
+        <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);width:72px;text-align:right;flex-shrink:0;">${p}</div>
+        <div style="flex:1;height:18px;background:rgba(255,255,255,0.05);border-radius:2px;overflow:hidden;">
+          <div style="height:100%;width:${pct}%;background:${colors[i]};border-radius:2px;transition:width 0.6s ease;"></div>
+        </div>
+        <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.4);width:32px;">${SALES_DATA.product_qty[i]}</div>
+      </div>`;
+    }).join('');
+  }
+
+  // Table
+  const table = document.getElementById('s-table');
+  if(table) {
+    const rows = salesBranch==='All'
+      ? [['Cairo', fmtS(cairoTotal), fmtS(Math.round(cairoTotal/50)), 'Espresso'],
+         ['Alex',  fmtS(alexTotal),  fmtS(Math.round(alexTotal/50)),  'Latte']]
+      : [[salesBranch, fmtS(salesBranch==='Cairo'?cairoTotal:alexTotal),
+          fmtS(Math.round((salesBranch==='Cairo'?cairoTotal:alexTotal)/50)),
+          salesBranch==='Cairo'?'Espresso':'Latte']];
+    table.innerHTML = `
+      <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
+        ${['Branch','Revenue (EGP)','Cups Sold','Top Product'].map(h=>
+          `<th style="padding:6px 10px;text-align:left;font-size:10px;color:rgba(250,249,246,0.35);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">${h}</th>`
+        ).join('')}
+      </tr>
+      ${rows.map(r=>`<tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+        ${r.map(c=>`<td style="padding:8px 10px;font-size:12px;color:rgba(250,249,246,0.7);">${c}</td>`).join('')}
+      </tr>`).join('')}`;
+  }
+}
+
+function switchSalesPage(n) {
+  document.getElementById('sales-page1').style.display = n===1?'block':'none';
+  document.getElementById('sales-page2').style.display = n===2?'block':'none';
+  ['stab1','stab2'].forEach((id,i)=>{
+    const active = i+1===n;
+    document.getElementById(id).style.background = active?'rgba(144,108,17,0.3)':'transparent';
+    document.getElementById(id).style.color = active?'#c8a855':'rgba(250,249,246,0.45)';
+    document.getElementById(id).style.border = active?'none':'1px solid rgba(255,255,255,0.1)';
+  });
+  setTimeout(renderSalesAll, 50);
+}
+
+function filterSalesBranch(branch) {
+  salesBranch = branch;
+  document.querySelectorAll('.sb-btn').forEach(b=>{
+    const active = b.id==='sb-'+branch;
+    b.style.background = active?'rgba(144,108,17,0.2)':'transparent';
+    b.style.color = active?'#c8a855':'rgba(250,249,246,0.5)';
+    b.style.borderColor = active?'rgba(144,108,17,0.5)':'rgba(255,255,255,0.1)';
+  });
+  renderSalesAll();
+}
+
+window.addEventListener('load', function() {
+  setTimeout(renderSalesAll, 200);
+});
+</script>
+
+    <!-- FEATURED: Dashboard 3 - HR Performance -->
+    <div style="margin-bottom:3rem;">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;">
+        <span style="font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#c8a855;border:1px solid rgba(200,168,85,0.4);padding:0.25rem 0.75rem;border-radius:2rem;">Featured Project</span>
+        <span style="font-size:0.8rem;color:rgba(250,249,246,0.45);">Power BI Dashboard — HR Performance & Attendance</span>
+      </div>
+      <div style="background:#0e0e0c;border:1px solid rgba(255,255,255,0.08);border-radius:6px;overflow:hidden;">
+
+        <!-- Header -->
+        <div style="background:#161614;border-bottom:1px solid rgba(255,255,255,0.07);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:28px;height:28px;background:rgba(75,86,148,0.3);border-radius:4px;display:flex;align-items:center;justify-content:center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4B5694" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:rgba(250,249,246,0.9);">HR Performance & Attendance</span>
+            <span style="font-size:11px;color:rgba(250,249,246,0.3);">·</span>
+            <span style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(250,249,246,0.4);">تحليل أداء الموظفين</span>
+          </div>
+          <div style="display:flex;gap:4px;">
+            <button onclick="switchHRPage(1)" id="htab1" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:4px 12px;border-radius:3px;border:none;cursor:pointer;background:rgba(75,86,148,0.3);color:#8a97e8;font-weight:600;">Overview</button>
+            <button onclick="switchHRPage(2)" id="htab2" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:4px 12px;border-radius:3px;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.45);">Attendance</button>
+          </div>
+        </div>
+
+        <!-- Slicers -->
+        <div style="background:#131311;border-bottom:1px solid rgba(255,255,255,0.06);padding:8px 20px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.35);letter-spacing:0.08em;text-transform:uppercase;">Department</span>
+            <div style="display:flex;gap:5px;">
+              <button onclick="filterHRDept('All')" id="hd-All" class="hd-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 10px;border-radius:2rem;border:1px solid rgba(75,86,148,0.6);cursor:pointer;background:rgba(75,86,148,0.2);color:#8a97e8;">All</button>
+              <button onclick="filterHRDept('IT')" id="hd-IT" class="hd-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 10px;border-radius:2rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.5);">IT</button>
+              <button onclick="filterHRDept('Finance')" id="hd-Finance" class="hd-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 10px;border-radius:2rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.5);">Finance</button>
+              <button onclick="filterHRDept('HR')" id="hd-HR" class="hd-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 10px;border-radius:2rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.5);">HR</button>
+              <button onclick="filterHRDept('Sales')" id="hd-Sales" class="hd-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 10px;border-radius:2rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.5);">Sales</button>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.35);letter-spacing:0.08em;text-transform:uppercase;">Gender</span>
+            <div style="display:flex;gap:5px;">
+              <button onclick="filterHRGender('All')" id="hg-All" class="hg-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 10px;border-radius:2rem;border:1px solid rgba(75,86,148,0.6);cursor:pointer;background:rgba(75,86,148,0.2);color:#8a97e8;">All</button>
+              <button onclick="filterHRGender('Male')" id="hg-Male" class="hg-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 10px;border-radius:2rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.5);">Male</button>
+              <button onclick="filterHRGender('Female')" id="hg-Female" class="hg-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 10px;border-radius:2rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.5);">Female</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 1: Overview -->
+        <div id="hr-page1" style="padding:16px 20px;">
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px;">
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:12px 14px;border-top:2px solid #4B5694;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.4);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">Total Employees</div>
+              <div id="hr-kpi-emp" style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:#8a97e8;line-height:1;">20</div>
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.3);margin-top:3px;">headcount</div>
+            </div>
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:12px 14px;border-top:2px solid #906C11;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.4);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">Average Salary</div>
+              <div id="hr-kpi-sal" style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:#c8a855;line-height:1;">12,800</div>
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.3);margin-top:3px;">EGP / month</div>
+            </div>
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:12px 14px;border-top:2px solid #803232;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.4);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">Total Absent Days</div>
+              <div id="hr-kpi-abs" style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:rgba(200,80,80,0.9);line-height:1;">47</div>
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.3);margin-top:3px;">days this period</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:12px;">
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">Avg Salary By Department</div>
+              <div style="position:relative;height:155px;"><canvas id="hr-ch-sal-dept"></canvas></div>
+            </div>
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">Employees By Gender</div>
+              <div style="position:relative;height:120px;"><canvas id="hr-ch-gender"></canvas></div>
+              <div style="display:flex;justify-content:center;gap:14px;margin-top:8px;" id="hr-gender-legend"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 2: Attendance & Performance -->
+        <div id="hr-page2" style="padding:16px 20px;display:none;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">Total Late Hours By Department</div>
+              <div style="position:relative;height:150px;"><canvas id="hr-ch-late"></canvas></div>
+            </div>
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">Bonus By Department</div>
+              <div style="position:relative;height:150px;"><canvas id="hr-ch-bonus"></canvas></div>
+            </div>
+          </div>
+          <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+            <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">Performance Rating</div>
+            <div id="hr-perf-bars" style="display:flex;flex-direction:column;gap:8px;padding:4px 0;"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1.25rem;">
+        <span class="work-tag">Power BI</span>
+        <span class="work-tag">HR Analytics</span>
+        <span class="work-tag">Performance Scoring</span>
+        <span class="work-tag">Attendance Tracking</span>
+        <span class="work-tag">Bar &amp; Donut Charts</span>
+        <span class="work-tag">KPI Cards</span>
+        <span class="work-tag">Dept &amp; Gender Slicers</span>
+        <span class="work-tag">SQL Server</span>
+      </div>
+      <p style="font-size:0.88rem;color:rgba(250,249,246,0.5);margin-top:0.75rem;line-height:1.65;">
+        An HR performance and attendance dashboard covering four departments (IT, Finance, HR, Sales) with dual slicers for department and gender. Tracks average salary, total absent days, late hours, bonus distribution, and individual performance scores — giving HR managers a complete operational picture across the organization.
+      </p>
+      <p style="font-size:0.85rem;color:rgba(250,249,246,0.4);margin-top:0.5rem;line-height:1.65;display:flex;align-items:flex-start;gap:0.5rem;">
+        <span style="color:#c8a855;flex-shrink:0;">⌗</span> This data was collected and the Joins and Group By were performed using SQL Server before it was displayed in Power BI.
+      </p>
+    </div>
+
+<script>
+const HR_DATA = {
+  depts: ['IT','Finance','HR','Sales'],
+  dept_colors: {'IT':'#4B5694','Finance':'#906C11','HR':'#6D3C52','Sales':'#803232'},
+  employees: [
+    {name:'Ahmed M.',dept:'IT',    gender:'Male',  salary:15000,absent:3, late:4,  bonus:2000,perf:4},
+    {name:'Sara K.',  dept:'IT',    gender:'Female',salary:14200,absent:2, late:2,  bonus:1800,perf:5},
+    {name:'Omar F.',  dept:'IT',    gender:'Male',  salary:13800,absent:4, late:6,  bonus:1500,perf:3},
+    {name:'Nour A.',  dept:'IT',    gender:'Female',salary:14500,absent:1, late:1,  bonus:2200,perf:5},
+    {name:'Karim B.', dept:'IT',    gender:'Male',  salary:13500,absent:5, late:8,  bonus:1200,perf:3},
+    {name:'Hana S.',  dept:'Finance',gender:'Female',salary:16000,absent:2, late:3,  bonus:2500,perf:5},
+    {name:'Tarek R.', dept:'Finance',gender:'Male',  salary:15500,absent:3, late:5,  bonus:2300,perf:4},
+    {name:'Dina W.',  dept:'Finance',gender:'Female',salary:14800,absent:1, late:2,  bonus:2100,perf:5},
+    {name:'Youssef T.',dept:'Finance',gender:'Male', salary:15200,absent:4, late:4,  bonus:2000,perf:4},
+    {name:'Rana M.',  dept:'Finance',gender:'Female',salary:14600,absent:2, late:3,  bonus:1900,perf:4},
+    {name:'Sherif L.',dept:'HR',    gender:'Male',  salary:12000,absent:5, late:7,  bonus:1000,perf:3},
+    {name:'Mona D.',  dept:'HR',    gender:'Female',salary:11800,absent:3, late:4,  bonus:1100,perf:3},
+    {name:'Adel P.',  dept:'HR',    gender:'Male',  salary:12200,absent:6, late:9,  bonus:900, perf:2},
+    {name:'Layla Q.', dept:'HR',    gender:'Female',salary:11500,absent:2, late:3,  bonus:1200,perf:4},
+    {name:'Bassem R.',dept:'HR',    gender:'Male',  salary:12400,absent:4, late:5,  bonus:1050,perf:3},
+    {name:'Noha C.',  dept:'Sales', gender:'Female',salary:13000,absent:3, late:6,  bonus:1800,perf:4},
+    {name:'Hazem V.', dept:'Sales', gender:'Male',  salary:12800,absent:5, late:8,  bonus:1600,perf:3},
+    {name:'Reem B.',  dept:'Sales', gender:'Female',salary:13500,absent:2, late:4,  bonus:2000,perf:4},
+    {name:'Khaled N.',dept:'Sales', gender:'Male',  salary:12600,absent:4, late:7,  bonus:1700,perf:3},
+    {name:'Yasmin Z.',dept:'Sales', gender:'Female',salary:13200,absent:1, late:3,  bonus:2100,perf:5},
+  ]
+};
+let hrDept = 'All', hrGender = 'All';
+let hrChartRefs = {};
+
+function getHRFiltered() {
+  return HR_DATA.employees.filter(e=>
+    (hrDept==='All'||e.dept===hrDept) &&
+    (hrGender==='All'||e.gender===hrGender)
+  );
+}
+
+function fmtH(n){return n.toLocaleString();}
+
+function mkHChart(id,type,labels,datasets,opts){
+  if(hrChartRefs[id]) hrChartRefs[id].destroy();
+  const canvas=document.getElementById(id);
+  if(!canvas) return;
+  hrChartRefs[id]=new Chart(canvas,{
+    type,data:{labels,datasets},
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false}},
+      scales:type==='pie'||type==='doughnut'?{}:{
+        x:{ticks:{color:'rgba(250,249,246,0.45)',font:{size:10}},grid:{color:'rgba(255,255,255,0.04)'}},
+        y:{ticks:{color:'rgba(250,249,246,0.45)',font:{size:10},callback:v=>fmtH(v)},grid:{color:'rgba(255,255,255,0.06)'}}
+      },...(opts||{})
+    }
+  });
+}
+
+function renderHRAll(){
+  const emp = getHRFiltered();
+  if(!emp.length) return;
+
+  // KPIs
+  const avgSal = Math.round(emp.reduce((a,e)=>a+e.salary,0)/emp.length);
+  const totalAbs = emp.reduce((a,e)=>a+e.absent,0);
+  document.getElementById('hr-kpi-emp').textContent = emp.length;
+  document.getElementById('hr-kpi-sal').textContent = fmtH(avgSal);
+  document.getElementById('hr-kpi-abs').textContent = totalAbs;
+
+  // Avg Salary by Dept
+  const depts = [...new Set(emp.map(e=>e.dept))];
+  const deptAvgSal = depts.map(d=>{
+    const de=emp.filter(e=>e.dept===d);
+    return Math.round(de.reduce((a,e)=>a+e.salary,0)/de.length);
+  });
+  mkHChart('hr-ch-sal-dept','bar',depts,
+    [{data:deptAvgSal,backgroundColor:depts.map(d=>HR_DATA.dept_colors[d]+'cc'),borderRadius:3}]);
+
+  // Gender donut
+  const males=emp.filter(e=>e.gender==='Male').length;
+  const females=emp.filter(e=>e.gender==='Female').length;
+  const gLabels=[], gVals=[], gColors=[];
+  if(males){gLabels.push('Male');gVals.push(males);gColors.push('#4B5694dd');}
+  if(females){gLabels.push('Female');gVals.push(females);gColors.push('#6D3C52dd');}
+  mkHChart('hr-ch-gender','doughnut',gLabels,[{data:gVals,backgroundColor:gColors,borderWidth:0,hoverOffset:4}]);
+  const gLeg=document.getElementById('hr-gender-legend');
+  if(gLeg) gLeg.innerHTML=gLabels.map((l,i)=>
+    `<span style="display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(250,249,246,0.55);font-family:'DM Sans',sans-serif;">
+      <span style="width:8px;height:8px;border-radius:50%;background:${gColors[i]};"></span>${l} (${gVals[i]})</span>`).join('');
+
+  // Late hours by dept
+  const deptLate=depts.map(d=>emp.filter(e=>e.dept===d).reduce((a,e)=>a+e.late,0));
+  mkHChart('hr-ch-late','bar',depts,
+    [{data:deptLate,backgroundColor:depts.map(d=>HR_DATA.dept_colors[d]+'cc'),borderRadius:3}]);
+
+  // Bonus by dept
+  const deptBonus=depts.map(d=>emp.filter(e=>e.dept===d).reduce((a,e)=>a+e.bonus,0));
+  mkHChart('hr-ch-bonus','bar',depts,
+    [{data:deptBonus,backgroundColor:depts.map(d=>HR_DATA.dept_colors[d]+'cc'),borderRadius:3}]);
+
+  // Performance rating bars
+  const perfEl=document.getElementById('hr-perf-bars');
+  if(perfEl){
+    const ratings={1:0,2:0,3:0,4:0,5:0};
+    emp.forEach(e=>ratings[e.perf]++);
+    const labels={5:'Excellent',4:'Good',3:'Average',2:'Below Avg',1:'Poor'};
+    const colors={5:'#4B5694',4:'#906C11',3:'#6D3C52',2:'#803232',1:'#371211'};
+    const maxV=Math.max(...Object.values(ratings))||1;
+    perfEl.innerHTML=[5,4,3,2,1].map(r=>`
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(250,249,246,0.5);width:76px;text-align:right;flex-shrink:0;">${labels[r]}</div>
+        <div style="flex:1;height:20px;background:rgba(255,255,255,0.05);border-radius:2px;overflow:hidden;">
+          <div style="height:100%;width:${Math.round(ratings[r]/maxV*100)}%;background:${colors[r]};border-radius:2px;transition:width 0.6s ease;"></div>
+        </div>
+        <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(250,249,246,0.4);width:20px;">${ratings[r]}</div>
+      </div>`).join('');
+  }
+}
+
+function switchHRPage(n){
+  document.getElementById('hr-page1').style.display=n===1?'block':'none';
+  document.getElementById('hr-page2').style.display=n===2?'block':'none';
+  ['htab1','htab2'].forEach((id,i)=>{
+    const active=i+1===n;
+    document.getElementById(id).style.background=active?'rgba(75,86,148,0.3)':'transparent';
+    document.getElementById(id).style.color=active?'#8a97e8':'rgba(250,249,246,0.45)';
+    document.getElementById(id).style.border=active?'none':'1px solid rgba(255,255,255,0.1)';
+  });
+  setTimeout(renderHRAll,50);
+}
+
+function filterHRDept(dept){
+  hrDept=dept;
+  document.querySelectorAll('.hd-btn').forEach(b=>{
+    const active=b.id==='hd-'+dept;
+    b.style.background=active?'rgba(75,86,148,0.2)':'transparent';
+    b.style.color=active?'#8a97e8':'rgba(250,249,246,0.5)';
+    b.style.borderColor=active?'rgba(75,86,148,0.6)':'rgba(255,255,255,0.1)';
+  });
+  renderHRAll();
+}
+
+function filterHRGender(g){
+  hrGender=g;
+  document.querySelectorAll('.hg-btn').forEach(b=>{
+    const active=b.id==='hg-'+g;
+    b.style.background=active?'rgba(75,86,148,0.2)':'transparent';
+    b.style.color=active?'#8a97e8':'rgba(250,249,246,0.5)';
+    b.style.borderColor=active?'rgba(75,86,148,0.6)':'rgba(255,255,255,0.1)';
+  });
+  renderHRAll();
+}
+
+window.addEventListener('load',function(){
+  setTimeout(renderHRAll,300);
+});
+</script>
+
+    <!-- FEATURED: Dashboard 4 - Staff & Branch Analytics -->
+    <div style="margin-bottom:3rem;">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;">
+        <span style="font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#c8a855;border:1px solid rgba(200,168,85,0.4);padding:0.25rem 0.75rem;border-radius:2rem;">Featured Project</span>
+        <span style="font-size:0.8rem;color:rgba(250,249,246,0.45);">Power BI Dashboard — Staff & Branch Performance</span>
+      </div>
+      <div style="background:#0e0e0c;border:1px solid rgba(255,255,255,0.08);border-radius:6px;overflow:hidden;">
+
+        <!-- Header -->
+        <div style="background:#161614;border-bottom:1px solid rgba(255,255,255,0.07);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:28px;height:28px;background:rgba(9,60,93,0.4);border-radius:4px;display:flex;align-items:center;justify-content:center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3a9fd8" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:rgba(250,249,246,0.9);">Staff & Branch Performance</span>
+            <span style="font-size:11px;color:rgba(250,249,246,0.3);">·</span>
+            <span style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(250,249,246,0.4);">تحليل الفروع والموظفين</span>
+          </div>
+          <div style="display:flex;gap:4px;">
+            <button onclick="switchD4Page(1)" id="d4tab1" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:4px 12px;border-radius:3px;border:none;cursor:pointer;background:rgba(9,60,93,0.4);color:#3a9fd8;font-weight:600;">Overview</button>
+            <button onclick="switchD4Page(2)" id="d4tab2" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:4px 12px;border-radius:3px;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.45);">Performance</button>
+          </div>
+        </div>
+
+        <!-- Slicers -->
+        <div style="background:#131311;border-bottom:1px solid rgba(255,255,255,0.06);padding:8px 20px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.35);letter-spacing:0.08em;text-transform:uppercase;">Branch</span>
+            <div style="display:flex;gap:5px;">
+              <button onclick="filterD4Branch('All')" id="d4b-All" class="d4b-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 9px;border-radius:2rem;border:1px solid rgba(9,60,93,0.7);cursor:pointer;background:rgba(9,60,93,0.35);color:#3a9fd8;">All</button>
+              <button onclick="filterD4Branch('Maadi HQ')" id="d4b-Maadi HQ" class="d4b-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 9px;border-radius:2rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.5);">Maadi HQ</button>
+              <button onclick="filterD4Branch('Smart Village')" id="d4b-Smart Village" class="d4b-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 9px;border-radius:2rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.5);">Smart Village</button>
+              <button onclick="filterD4Branch('Nasr City')" id="d4b-Nasr City" class="d4b-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 9px;border-radius:2rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.5);">Nasr City</button>
+              <button onclick="filterD4Branch('Gleem Branch')" id="d4b-Gleem Branch" class="d4b-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 9px;border-radius:2rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.5);">Gleem</button>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.35);letter-spacing:0.08em;text-transform:uppercase;">Gender</span>
+            <div style="display:flex;gap:5px;">
+              <button onclick="filterD4Gender('All')" id="d4g-All" class="d4g-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 9px;border-radius:2rem;border:1px solid rgba(9,60,93,0.7);cursor:pointer;background:rgba(9,60,93,0.35);color:#3a9fd8;">All</button>
+              <button onclick="filterD4Gender('Male')" id="d4g-Male" class="d4g-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 9px;border-radius:2rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.5);">Male</button>
+              <button onclick="filterD4Gender('Female')" id="d4g-Female" class="d4g-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 9px;border-radius:2rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.5);">Female</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 1: Overview -->
+        <div id="d4-page1" style="padding:16px 20px;">
+          <!-- 6 KPI Cards -->
+          <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:14px;">
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:10px 12px;border-top:2px solid #3a9fd8;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:9px;color:rgba(250,249,246,0.4);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;">Total Employees</div>
+              <div id="d4-kpi-emp" style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:#3a9fd8;line-height:1;">25</div>
+            </div>
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:10px 12px;border-top:2px solid #906C11;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:9px;color:rgba(250,249,246,0.4);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;">Total Salary</div>
+              <div id="d4-kpi-sal" style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:#c8a855;line-height:1;">391K</div>
+            </div>
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:10px 12px;border-top:2px solid #4B5694;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:9px;color:rgba(250,249,246,0.4);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;">Avg Salary</div>
+              <div id="d4-kpi-avg" style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:#8a97e8;line-height:1;">15.6K</div>
+            </div>
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:10px 12px;border-top:2px solid #2e9e6e;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:9px;color:rgba(250,249,246,0.4);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;">Avg Rating</div>
+              <div id="d4-kpi-rat" style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:#2e9e6e;line-height:1;">3.84</div>
+            </div>
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:10px 12px;border-top:2px solid #803232;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:9px;color:rgba(250,249,246,0.4);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;">Total Overtime</div>
+              <div id="d4-kpi-ot" style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:rgba(200,80,80,0.9);line-height:1;">197</div>
+            </div>
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:10px 12px;border-top:2px solid #505D5D;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:9px;color:rgba(250,249,246,0.4);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;">Total Leave Days</div>
+              <div id="d4-kpi-lv" style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:rgba(187,218,218,0.85);line-height:1;">95</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+            <!-- Total Salary by Branch -->
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">Total Salary by Branch</div>
+              <div style="position:relative;height:150px;"><canvas id="d4-ch-sal-branch"></canvas></div>
+            </div>
+            <!-- Staff by Gender donut -->
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;display:flex;flex-direction:column;align-items:center;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;align-self:flex-start;">Staff By Gender</div>
+              <div style="position:relative;height:120px;width:100%;"><canvas id="d4-ch-gender"></canvas></div>
+              <div style="display:flex;gap:14px;margin-top:8px;" id="d4-gender-legend"></div>
+            </div>
+            <!-- Staff by Branch donut -->
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;display:flex;flex-direction:column;align-items:center;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;align-self:flex-start;">Staff By Branch</div>
+              <div style="position:relative;height:120px;width:100%;"><canvas id="d4-ch-staff-branch"></canvas></div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:8px;" id="d4-branch-legend"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 2: Performance -->
+        <div id="d4-page2" style="padding:16px 20px;display:none;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+            <!-- Overtime by Branch -->
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">Total Overtime Hours by Branch</div>
+              <div style="position:relative;height:150px;"><canvas id="d4-ch-ot"></canvas></div>
+            </div>
+            <!-- Avg Salary by Region -->
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">Average Salary By Region</div>
+              <div style="position:relative;height:150px;"><canvas id="d4-ch-sal-region"></canvas></div>
+            </div>
+          </div>
+          <!-- Performance Rating Analysis -->
+          <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+            <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:12px;">Performance Rating Analysis</div>
+            <div id="d4-perf-bars" style="display:flex;flex-direction:column;gap:8px;"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1.25rem;">
+        <span class="work-tag">Power BI</span>
+        <span class="work-tag">Staff Analytics</span>
+        <span class="work-tag">6 KPI Cards</span>
+        <span class="work-tag">Branch Comparison</span>
+        <span class="work-tag">Regional Salary</span>
+        <span class="work-tag">Overtime Tracking</span>
+        <span class="work-tag">Performance Rating</span>
+        <span class="work-tag">Gender &amp; Branch Slicers</span>
+        <span class="work-tag">SQL Server</span>
+      </div>
+      <p style="font-size:0.88rem;color:rgba(250,249,246,0.5);margin-top:0.75rem;line-height:1.65;">
+        A comprehensive staff analytics dashboard covering 25 employees across four branches — Maadi HQ, Smart Village, Nasr City, and Gleem Branch. Tracks total salary (391K EGP), average salary by region (Giza 20.3K · Cairo 15.5K · Alexandria 10.5K), overtime hours, leave days, gender distribution (72% Male / 28% Female), and performance ratings — with branch and gender slicers for deep drill-down.
+      </p>
+      <p style="font-size:0.85rem;color:rgba(250,249,246,0.4);margin-top:0.5rem;line-height:1.65;display:flex;align-items:flex-start;gap:0.5rem;">
+        <span style="color:#c8a855;flex-shrink:0;">⌗</span> This data was collected and the Joins and Group By were performed using SQL Server before it was displayed in Power BI.
+      </p>
+    </div>
+
+<script>
+const D4 = {
+  branches: ['Maadi HQ','Smart Village','Nasr City','Gleem Branch'],
+  regions:  {'Maadi HQ':'Cairo','Smart Village':'Giza','Nasr City':'Cairo','Gleem Branch':'Alexandria'},
+  bColors:  {'Maadi HQ':'#3a9fd8','Smart Village':'#906C11','Nasr City':'#4B5694','Gleem Branch':'#2e9e6e'},
+  employees: [
+    // Maadi HQ - 7 employees
+    {branch:'Maadi HQ',gender:'Male',  salary:20000,ot:12,leave:5, perf:5},
+    {branch:'Maadi HQ',gender:'Male',  salary:18500,ot:10,leave:4, perf:4},
+    {branch:'Maadi HQ',gender:'Female',salary:17000,ot:8, leave:6, perf:4},
+    {branch:'Maadi HQ',gender:'Male',  salary:16500,ot:15,leave:3, perf:3},
+    {branch:'Maadi HQ',gender:'Female',salary:15000,ot:9, leave:7, perf:5},
+    {branch:'Maadi HQ',gender:'Male',  salary:19000,ot:11,leave:4, perf:4},
+    {branch:'Maadi HQ',gender:'Male',  salary:17500,ot:7, leave:5, perf:3},
+    // Smart Village - 7 employees
+    {branch:'Smart Village',gender:'Male',  salary:21000,ot:14,leave:3, perf:5},
+    {branch:'Smart Village',gender:'Female',salary:19500,ot:9, leave:5, perf:4},
+    {branch:'Smart Village',gender:'Male',  salary:20500,ot:13,leave:4, perf:5},
+    {branch:'Smart Village',gender:'Male',  salary:18000,ot:11,leave:6, perf:3},
+    {branch:'Smart Village',gender:'Female',salary:17500,ot:8, leave:4, perf:4},
+    {branch:'Smart Village',gender:'Male',  salary:19000,ot:12,leave:3, perf:4},
+    {branch:'Smart Village',gender:'Male',  salary:18500,ot:10,leave:5, perf:3},
+    // Nasr City - 6 employees
+    {branch:'Nasr City',gender:'Male',  salary:16000,ot:8, leave:4, perf:4},
+    {branch:'Nasr City',gender:'Female',salary:15000,ot:6, leave:6, perf:3},
+    {branch:'Nasr City',gender:'Male',  salary:14500,ot:9, leave:5, perf:3},
+    {branch:'Nasr City',gender:'Female',salary:15500,ot:7, leave:4, perf:4},
+    {branch:'Nasr City',gender:'Male',  salary:14000,ot:10,leave:7, perf:2},
+    {branch:'Nasr City',gender:'Male',  salary:15200,ot:8, leave:3, perf:4},
+    // Gleem Branch - 5 employees
+    {branch:'Gleem Branch',gender:'Female',salary:12000,ot:6, leave:5, perf:3},
+    {branch:'Gleem Branch',gender:'Male',  salary:11500,ot:8, leave:6, perf:2},
+    {branch:'Gleem Branch',gender:'Female',salary:12500,ot:5, leave:4, perf:3},
+    {branch:'Gleem Branch',gender:'Male',  salary:11000,ot:9, leave:7, perf:2},
+    {branch:'Gleem Branch',gender:'Male',  salary:10500,ot:7, leave:5, perf:3},
+  ]
+};
+let d4Branch='All', d4Gender='All';
+let d4Charts={};
+
+function getD4Filtered(){
+  return D4.employees.filter(e=>
+    (d4Branch==='All'||e.branch===d4Branch)&&
+    (d4Gender==='All'||e.gender===d4Gender)
+  );
+}
+
+function fmtD4(n){
+  if(n>=1000) return (n/1000).toFixed(1)+'K';
+  return n.toLocaleString();
+}
+
+function mkD4Chart(id,type,labels,datasets,opts){
+  if(d4Charts[id]) d4Charts[id].destroy();
+  const c=document.getElementById(id); if(!c) return;
+  d4Charts[id]=new Chart(c,{
+    type,data:{labels,datasets},
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false}},
+      scales:type==='pie'||type==='doughnut'?{}:{
+        x:{ticks:{color:'rgba(250,249,246,0.45)',font:{size:10}},grid:{color:'rgba(255,255,255,0.04)'}},
+        y:{ticks:{color:'rgba(250,249,246,0.45)',font:{size:10},callback:v=>fmtD4(v)},grid:{color:'rgba(255,255,255,0.06)'}}
+      },...(opts||{})
+    }
+  });
+}
+
+function renderD4All(){
+  const emp=getD4Filtered(); if(!emp.length) return;
+  const totalSal=emp.reduce((a,e)=>a+e.salary,0);
+  const avgSal=Math.round(totalSal/emp.length);
+  const avgRat=(emp.reduce((a,e)=>a+e.perf,0)/emp.length).toFixed(2);
+  const totalOT=emp.reduce((a,e)=>a+e.ot,0);
+  const totalLv=emp.reduce((a,e)=>a+e.leave,0);
+  document.getElementById('d4-kpi-emp').textContent=emp.length;
+  document.getElementById('d4-kpi-sal').textContent=fmtD4(totalSal);
+  document.getElementById('d4-kpi-avg').textContent=fmtD4(avgSal);
+  document.getElementById('d4-kpi-rat').textContent=avgRat;
+  document.getElementById('d4-kpi-ot').textContent=totalOT;
+  document.getElementById('d4-kpi-lv').textContent=totalLv;
+
+  // Salary by branch (horizontal bar)
+  const activeBranches=[...new Set(emp.map(e=>e.branch))];
+  const salByBranch=activeBranches.map(b=>emp.filter(e=>e.branch===b).reduce((a,e)=>a+e.salary,0));
+  mkD4Chart('d4-ch-sal-branch','bar',activeBranches,
+    [{data:salByBranch,backgroundColor:activeBranches.map(b=>D4.bColors[b]+'cc'),borderRadius:3,indexAxis:'y'}],
+    {indexAxis:'y'});
+
+  // Gender donut
+  const males=emp.filter(e=>e.gender==='Male').length;
+  const females=emp.filter(e=>e.gender==='Female').length;
+  const gL=[],gV=[],gC=[];
+  if(males){gL.push('Male');gV.push(males);gC.push('#3a9fd8cc');}
+  if(females){gL.push('Female');gV.push(females);gC.push('#6D3C52cc');}
+  mkD4Chart('d4-ch-gender','doughnut',gL,[{data:gV,backgroundColor:gC,borderWidth:0,hoverOffset:4}]);
+  const gLeg=document.getElementById('d4-gender-legend');
+  if(gLeg) gLeg.innerHTML=gL.map((l,i)=>{
+    const pct=Math.round(gV[i]/gV.reduce((a,b)=>a+b,0)*100);
+    return `<span style="display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(250,249,246,0.55);font-family:'DM Sans',sans-serif;"><span style="width:8px;height:8px;border-radius:50%;background:${gC[i]};"></span>${l} ${pct}%</span>`;
+  }).join('');
+
+  // Staff by branch donut
+  const staffByBranch=activeBranches.map(b=>emp.filter(e=>e.branch===b).length);
+  mkD4Chart('d4-ch-staff-branch','doughnut',activeBranches,
+    [{data:staffByBranch,backgroundColor:activeBranches.map(b=>D4.bColors[b]+'cc'),borderWidth:0,hoverOffset:4}]);
+  const bLeg=document.getElementById('d4-branch-legend');
+  if(bLeg) bLeg.innerHTML=activeBranches.map((b,i)=>{
+    const pct=Math.round(staffByBranch[i]/staffByBranch.reduce((a,c)=>a+c,0)*100);
+    return `<span style="display:flex;align-items:center;gap:4px;font-size:10px;color:rgba(250,249,246,0.5);font-family:'DM Sans',sans-serif;"><span style="width:7px;height:7px;border-radius:2px;background:${D4.bColors[b]};"></span>${b.replace(' Branch','')} ${pct}%</span>`;
+  }).join('');
+
+  // Overtime by branch
+  const otByBranch=activeBranches.map(b=>emp.filter(e=>e.branch===b).reduce((a,e)=>a+e.ot,0));
+  mkD4Chart('d4-ch-ot','bar',activeBranches,
+    [{data:otByBranch,backgroundColor:activeBranches.map(b=>D4.bColors[b]+'cc'),borderRadius:3}]);
+
+  // Avg salary by region
+  const regionMap={'Giza':[],'Cairo':[],'Alexandria':[]};
+  emp.forEach(e=>{const r=D4.regions[e.branch]; if(r) regionMap[r].push(e.salary);});
+  const activeRegions=Object.keys(regionMap).filter(r=>regionMap[r].length>0);
+  const rColors={'Giza':'#3a9fd8','Cairo':'#906C11','Alexandria':'#4B5694'};
+  mkD4Chart('d4-ch-sal-region','bar',activeRegions,
+    [{data:activeRegions.map(r=>Math.round(regionMap[r].reduce((a,b)=>a+b,0)/regionMap[r].length)),
+      backgroundColor:activeRegions.map(r=>rColors[r]+'cc'),borderRadius:3}]);
+
+  // Performance rating
+  const perfEl=document.getElementById('d4-perf-bars'); if(!perfEl) return;
+  const ratings={5:0,4:0,3:0,2:0};
+  emp.forEach(e=>{ if(ratings[e.perf]!==undefined) ratings[e.perf]++; });
+  const maxV=Math.max(...Object.values(ratings))||1;
+  const pColors={5:'#2e9e6e',4:'#3a9fd8',3:'#906C11',2:'#803232'};
+  const pLabels={5:'Excellent (5)',4:'Good (4)',3:'Average (3)',2:'Below Avg (2)'};
+  perfEl.innerHTML=[5,4,3,2].map(r=>`
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(250,249,246,0.5);width:96px;text-align:right;flex-shrink:0;">${pLabels[r]}</div>
+      <div style="flex:1;height:20px;background:rgba(255,255,255,0.05);border-radius:2px;overflow:hidden;">
+        <div style="height:100%;width:${Math.round(ratings[r]/maxV*100)}%;background:${pColors[r]};border-radius:2px;transition:width 0.6s ease;"></div>
+      </div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(250,249,246,0.4);width:20px;">${ratings[r]}</div>
+    </div>`).join('');
+}
+
+function switchD4Page(n){
+  document.getElementById('d4-page1').style.display=n===1?'block':'none';
+  document.getElementById('d4-page2').style.display=n===2?'block':'none';
+  ['d4tab1','d4tab2'].forEach((id,i)=>{
+    const active=i+1===n;
+    document.getElementById(id).style.background=active?'rgba(9,60,93,0.4)':'transparent';
+    document.getElementById(id).style.color=active?'#3a9fd8':'rgba(250,249,246,0.45)';
+    document.getElementById(id).style.border=active?'none':'1px solid rgba(255,255,255,0.1)';
+  });
+  setTimeout(renderD4All,50);
+}
+
+function filterD4Branch(b){
+  d4Branch=b;
+  document.querySelectorAll('.d4b-btn').forEach(btn=>{
+    const active=btn.id==='d4b-'+b;
+    btn.style.background=active?'rgba(9,60,93,0.35)':'transparent';
+    btn.style.color=active?'#3a9fd8':'rgba(250,249,246,0.5)';
+    btn.style.borderColor=active?'rgba(9,60,93,0.7)':'rgba(255,255,255,0.1)';
+  });
+  renderD4All();
+}
+
+function filterD4Gender(g){
+  d4Gender=g;
+  document.querySelectorAll('.d4g-btn').forEach(btn=>{
+    const active=btn.id==='d4g-'+g;
+    btn.style.background=active?'rgba(9,60,93,0.35)':'transparent';
+    btn.style.color=active?'#3a9fd8':'rgba(250,249,246,0.5)';
+    btn.style.borderColor=active?'rgba(9,60,93,0.7)':'rgba(255,255,255,0.1)';
+  });
+  renderD4All();
+}
+
+window.addEventListener('load',function(){ setTimeout(renderD4All,400); });
+</script>
+
+    <!-- FEATURED: Dashboard 5 - Supply Chain -->
+    <div style="margin-bottom:3rem;">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;">
+        <span style="font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#c8a855;border:1px solid rgba(200,168,85,0.4);padding:0.25rem 0.75rem;border-radius:2rem;">Featured Project</span>
+        <span style="font-size:0.8rem;color:rgba(250,249,246,0.45);">Power BI Dashboard — Delta Logistics Egypt · Supply Chain</span>
+      </div>
+      <div style="background:#0e0e0c;border:1px solid rgba(255,255,255,0.08);border-radius:6px;overflow:hidden;">
+
+        <!-- Header -->
+        <div style="background:#161614;border-bottom:1px solid rgba(255,255,255,0.07);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:28px;height:28px;background:rgba(217,119,54,0.2);border-radius:4px;display:flex;align-items:center;justify-content:center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D97736" stroke-width="2" stroke-linecap="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:rgba(250,249,246,0.9);">Delta Logistics Egypt</span>
+            <span style="font-size:11px;color:rgba(250,249,246,0.3);">·</span>
+            <span style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(250,249,246,0.4);">Supply Chain Analytics</span>
+          </div>
+          <div style="display:flex;gap:4px;">
+            <button onclick="switchD5Page(1)" id="d5tab1" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:4px 12px;border-radius:3px;border:none;cursor:pointer;background:rgba(217,119,54,0.25);color:#D97736;font-weight:600;">Revenue</button>
+            <button onclick="switchD5Page(2)" id="d5tab2" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:4px 12px;border-radius:3px;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.45);">Shipments</button>
+          </div>
+        </div>
+
+        <!-- Slicers -->
+        <div style="background:#131311;border-bottom:1px solid rgba(255,255,255,0.06);padding:8px 20px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.35);letter-spacing:0.08em;text-transform:uppercase;">Branch</span>
+            <div style="display:flex;gap:5px;">
+              <button onclick="filterD5Branch('All')" id="d5br-All" class="d5br-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 9px;border-radius:2rem;border:1px solid rgba(217,119,54,0.6);cursor:pointer;background:rgba(217,119,54,0.18);color:#D97736;">All</button>
+              <button onclick="filterD5Branch('Borg El-Arab')" id="d5br-Borg El-Arab" class="d5br-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 9px;border-radius:2rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.5);">Borg El-Arab</button>
+              <button onclick="filterD5Branch('Suez Free Zone')" id="d5br-Suez Free Zone" class="d5br-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 9px;border-radius:2rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.5);">Suez Free Zone</button>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.35);letter-spacing:0.08em;text-transform:uppercase;">Shipping</span>
+            <div style="display:flex;gap:5px;">
+              <button onclick="filterD5Method('All')" id="d5m-All" class="d5m-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 9px;border-radius:2rem;border:1px solid rgba(217,119,54,0.6);cursor:pointer;background:rgba(217,119,54,0.18);color:#D97736;">All</button>
+              <button onclick="filterD5Method('Air Freight')" id="d5m-Air Freight" class="d5m-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 9px;border-radius:2rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.5);">Air Freight</button>
+              <button onclick="filterD5Method('Land Transport')" id="d5m-Land Transport" class="d5m-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 9px;border-radius:2rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.5);">Land Transport</button>
+              <button onclick="filterD5Method('Sea Freight')" id="d5m-Sea Freight" class="d5m-btn" style="font-family:'DM Sans',sans-serif;font-size:11px;padding:3px 9px;border-radius:2rem;border:1px solid rgba(255,255,255,0.1);cursor:pointer;background:transparent;color:rgba(250,249,246,0.5);">Sea Freight</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 1: Revenue -->
+        <div id="d5-page1" style="padding:16px 20px;">
+          <!-- 7 KPIs -->
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:14px;">
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:10px 10px;border-top:2px solid #D97736;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:9px;color:rgba(250,249,246,0.4);letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;">Total Revenue</div>
+              <div id="d5-kpi-rev" style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:#D97736;line-height:1;">4.82M</div>
+            </div>
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:10px 10px;border-top:2px solid #2e9e6e;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:9px;color:rgba(250,249,246,0.4);letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;">Net Profit</div>
+              <div id="d5-kpi-profit" style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:#2e9e6e;line-height:1;">1.24M</div>
+            </div>
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:10px 10px;border-top:2px solid #803232;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:9px;color:rgba(250,249,246,0.4);letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;">Total Cost</div>
+              <div id="d5-kpi-cost" style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:rgba(200,80,80,0.9);line-height:1;">3.58M</div>
+            </div>
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:10px 10px;border-top:2px solid #4B5694;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:9px;color:rgba(250,249,246,0.4);letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;">Shipments</div>
+              <div id="d5-kpi-ship" style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:#8a97e8;line-height:1;">348</div>
+            </div>
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:10px 10px;border-top:2px solid #A63A2B;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:9px;color:rgba(250,249,246,0.4);letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;">Delay Days</div>
+              <div id="d5-kpi-delay" style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:rgba(166,58,43,0.9);line-height:1;">214</div>
+            </div>
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:10px 10px;border-top:2px solid #c8a855;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:9px;color:rgba(250,249,246,0.4);letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;">Avg Rating</div>
+              <div id="d5-kpi-rating" style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:#c8a855;line-height:1;">3.7</div>
+            </div>
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:10px 10px;border-top:2px solid #505D5D;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:9px;color:rgba(250,249,246,0.4);letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;">Avg Delivery</div>
+              <div id="d5-kpi-deldays" style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:rgba(187,218,218,0.85);line-height:1;">8.4d</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:12px;">
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">Monthly Revenue Flow</div>
+              <div style="position:relative;height:155px;"><canvas id="d5-ch-monthly"></canvas></div>
+            </div>
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">Revenue Analysis</div>
+              <div style="position:relative;height:130px;"><canvas id="d5-ch-rev-branch"></canvas></div>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;" id="d5-rev-legend"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 2: Shipments -->
+        <div id="d5-page2" style="padding:16px 20px;display:none;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">Shipments By Shipping Method</div>
+              <div style="position:relative;height:150px;"><canvas id="d5-ch-methods"></canvas></div>
+            </div>
+            <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+              <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">Shipment Delay Days By Supplier</div>
+              <div style="position:relative;height:150px;"><canvas id="d5-ch-delay"></canvas></div>
+            </div>
+          </div>
+          <div style="background:#1a1a17;border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:14px;">
+            <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:12px;">Staff Share By Branch & Performance Rating</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+              <div style="position:relative;height:130px;"><canvas id="d5-ch-staff"></canvas></div>
+              <div id="d5-perf-bars" style="display:flex;flex-direction:column;justify-content:center;gap:7px;"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1.25rem;">
+        <span class="work-tag">Power BI</span>
+        <span class="work-tag">Supply Chain</span>
+        <span class="work-tag">Logistics Analytics</span>
+        <span class="work-tag">7 KPI Cards</span>
+        <span class="work-tag">Monthly Revenue Flow</span>
+        <span class="work-tag">Delay Analysis</span>
+        <span class="work-tag">Shipping Methods</span>
+        <span class="work-tag">Supplier Rating</span>
+        <span class="work-tag">SQL Server</span>
+      </div>
+      <p style="font-size:0.88rem;color:rgba(250,249,246,0.5);margin-top:0.75rem;line-height:1.65;">
+        A full supply chain analytics report for Delta Logistics Egypt, covering two warehouse branches (Borg El-Arab & Suez Free Zone) and three shipping methods (Air Freight, Land Transport, Sea Freight). Tracks total revenue, net profit, costs, shipment volumes, delay days by supplier, average delivery time, and supplier ratings — with interactive branch and shipping method slicers.
+      </p>
+      <p style="font-size:0.85rem;color:rgba(250,249,246,0.4);margin-top:0.5rem;line-height:1.65;display:flex;align-items:flex-start;gap:0.5rem;">
+        <span style="color:#c8a855;flex-shrink:0;">⌗</span> This data was collected and the Joins and Group By were performed using SQL Server before it was displayed in Power BI.
+      </p>
+    </div>
+
+<script>
+const D5 = {
+  months: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+  branches: ['Borg El-Arab','Suez Free Zone'],
+  methods: ['Air Freight','Land Transport','Sea Freight'],
+  suppliers: ['Al-Nile Trade','Cairo Supply Co','Delta Goods','Eastern Corp','Gulf Partners'],
+  bColors: {'Borg El-Arab':'#D97736','Suez Free Zone':'#4B5694'},
+  mColors: {'Air Freight':'#D97736','Land Transport':'#4B5694','Sea Freight':'#2e9e6e'},
+  shipments: (function(){
+    const rows=[];
+    const methods=['Air Freight','Land Transport','Sea Freight'];
+    const branches=['Borg El-Arab','Suez Free Zone'];
+    const suppliers=['Al-Nile Trade','Cairo Supply Co','Delta Goods','Eastern Corp','Gulf Partners'];
+    const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    for(let i=0;i<348;i++){
+      const b=branches[Math.floor(Math.random()*branches.length)];
+      const m=methods[Math.floor(Math.random()*methods.length)];
+      const s=suppliers[Math.floor(Math.random()*suppliers.length)];
+      const mo=months[Math.floor(Math.random()*months.length)];
+      const rev=b==='Borg El-Arab'?(8000+Math.random()*6000):(6000+Math.random()*5000);
+      const cost=rev*0.7+Math.random()*500;
+      const delay=Math.floor(Math.random()*8);
+      const perf=2+Math.floor(Math.random()*4);
+      const delivDays=5+Math.floor(Math.random()*10);
+      rows.push({branch:b,method:m,supplier:s,month:mo,revenue:Math.round(rev),cost:Math.round(cost),delay,perf,delivDays});
+    }
+    return rows;
+  })()
+};
+let d5Branch='All', d5Method='All';
+let d5Charts={};
+
+function getD5Filtered(){
+  return D5.shipments.filter(s=>
+    (d5Branch==='All'||s.branch===d5Branch)&&
+    (d5Method==='All'||s.method===d5Method)
+  );
+}
+
+function fmtD5(n){
+  if(n>=1000000) return (n/1000000).toFixed(2)+'M';
+  if(n>=1000) return (n/1000).toFixed(1)+'K';
+  return n.toLocaleString();
+}
+
+function mkD5Chart(id,type,labels,datasets,opts){
+  if(d5Charts[id]) d5Charts[id].destroy();
+  const c=document.getElementById(id); if(!c) return;
+  d5Charts[id]=new Chart(c,{
+    type,data:{labels,datasets},
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false}},
+      scales:type==='pie'||type==='doughnut'?{}:{
+        x:{ticks:{color:'rgba(250,249,246,0.45)',font:{size:10}},grid:{color:'rgba(255,255,255,0.04)'}},
+        y:{ticks:{color:'rgba(250,249,246,0.45)',font:{size:10},callback:v=>fmtD5(v)},grid:{color:'rgba(255,255,255,0.06)'}}
+      },...(opts||{})
+    }
+  });
+}
+
+function renderD5All(){
+  const emp=getD5Filtered(); if(!emp.length) return;
+  const totalRev=emp.reduce((a,s)=>a+s.revenue,0);
+  const totalCost=emp.reduce((a,s)=>a+s.cost,0);
+  const netProfit=totalRev-totalCost;
+  const totalDelay=emp.reduce((a,s)=>a+s.delay,0);
+  const avgRating=(emp.reduce((a,s)=>a+s.perf,0)/emp.length).toFixed(1);
+  const avgDeliv=(emp.reduce((a,s)=>a+s.delivDays,0)/emp.length).toFixed(1);
+
+  document.getElementById('d5-kpi-rev').textContent=fmtD5(totalRev);
+  document.getElementById('d5-kpi-profit').textContent=fmtD5(Math.max(0,netProfit));
+  document.getElementById('d5-kpi-cost').textContent=fmtD5(totalCost);
+  document.getElementById('d5-kpi-ship').textContent=emp.length;
+  document.getElementById('d5-kpi-delay').textContent=totalDelay;
+  document.getElementById('d5-kpi-rating').textContent=avgRating;
+  document.getElementById('d5-kpi-deldays').textContent=avgDeliv+'d';
+
+  // Monthly revenue line
+  const monthRev={};
+  D5.months.forEach(m=>monthRev[m]=0);
+  emp.forEach(s=>monthRev[s.month]=(monthRev[s.month]||0)+s.revenue);
+  mkD5Chart('d5-ch-monthly','line',D5.months,
+    [{data:D5.months.map(m=>monthRev[m]),borderColor:'#D97736',backgroundColor:'rgba(217,119,54,0.1)',
+      tension:0.4,fill:true,pointBackgroundColor:'#D97736',pointRadius:3}]);
+
+  // Revenue by branch donut
+  const activeBranches=[...new Set(emp.map(s=>s.branch))];
+  const branchRev=activeBranches.map(b=>emp.filter(s=>s.branch===b).reduce((a,s)=>a+s.revenue,0));
+  mkD5Chart('d5-ch-rev-branch','doughnut',activeBranches,
+    [{data:branchRev,backgroundColor:activeBranches.map(b=>D5.bColors[b]+'dd'),borderWidth:0,hoverOffset:4}]);
+  const rLeg=document.getElementById('d5-rev-legend');
+  if(rLeg) rLeg.innerHTML=activeBranches.map((b,i)=>{
+    const pct=Math.round(branchRev[i]/branchRev.reduce((a,c)=>a+c,0)*100);
+    return `<span style="display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(250,249,246,0.55);font-family:'DM Sans',sans-serif;"><span style="width:8px;height:8px;border-radius:2px;background:${D5.bColors[b]};"></span>${b.replace(' Warehouse','')} ${pct}%</span>`;
+  }).join('');
+
+  // Shipments by method bar
+  const activeMethods=[...new Set(emp.map(s=>s.method))];
+  const methodCounts=activeMethods.map(m=>emp.filter(s=>s.method===m).length);
+  mkD5Chart('d5-ch-methods','bar',activeMethods,
+    [{data:methodCounts,backgroundColor:activeMethods.map(m=>D5.mColors[m]+'cc'),borderRadius:3}]);
+
+  // Delay by supplier bar
+  const supDelay={};
+  D5.suppliers.forEach(s=>supDelay[s]=0);
+  emp.forEach(s=>supDelay[s.supplier]=(supDelay[s.supplier]||0)+s.delay);
+  const supLabels=Object.keys(supDelay).filter(s=>supDelay[s]>0);
+  mkD5Chart('d5-ch-delay','bar',supLabels,
+    [{data:supLabels.map(s=>supDelay[s]),backgroundColor:'#A63A2Bcc',borderRadius:3}]);
+
+  // Staff share by branch donut
+  mkD5Chart('d5-ch-staff','doughnut',activeBranches,
+    [{data:activeBranches.map(b=>emp.filter(s=>s.branch===b).length),
+      backgroundColor:activeBranches.map(b=>D5.bColors[b]+'dd'),borderWidth:0,hoverOffset:4}]);
+
+  // Performance bars
+  const perfEl=document.getElementById('d5-perf-bars'); if(!perfEl) return;
+  const ratings={5:0,4:0,3:0,2:0};
+  emp.forEach(s=>{if(ratings[s.perf]!==undefined)ratings[s.perf]++;});
+  const maxV=Math.max(...Object.values(ratings))||1;
+  const pColors={5:'#2e9e6e',4:'#D97736',3:'#4B5694',2:'#A63A2B'};
+  const pLabels={5:'Excellent',4:'Good',3:'Average',2:'Below Avg'};
+  perfEl.innerHTML=[5,4,3,2].map(r=>`
+    <div style="display:flex;align-items:center;gap:8px;">
+      <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.5);width:68px;text-align:right;flex-shrink:0;">${pLabels[r]}</div>
+      <div style="flex:1;height:18px;background:rgba(255,255,255,0.05);border-radius:2px;overflow:hidden;">
+        <div style="height:100%;width:${Math.round(ratings[r]/maxV*100)}%;background:${pColors[r]};border-radius:2px;transition:width 0.6s ease;"></div>
+      </div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(250,249,246,0.4);width:20px;">${ratings[r]}</div>
+    </div>`).join('');
+}
+
+function switchD5Page(n){
+  document.getElementById('d5-page1').style.display=n===1?'block':'none';
+  document.getElementById('d5-page2').style.display=n===2?'block':'none';
+  ['d5tab1','d5tab2'].forEach((id,i)=>{
+    const active=i+1===n;
+    document.getElementById(id).style.background=active?'rgba(217,119,54,0.25)':'transparent';
+    document.getElementById(id).style.color=active?'#D97736':'rgba(250,249,246,0.45)';
+    document.getElementById(id).style.border=active?'none':'1px solid rgba(255,255,255,0.1)';
+  });
+  setTimeout(renderD5All,50);
+}
+
+function filterD5Branch(b){
+  d5Branch=b;
+  document.querySelectorAll('.d5br-btn').forEach(btn=>{
+    const active=btn.id==='d5br-'+b;
+    btn.style.background=active?'rgba(217,119,54,0.18)':'transparent';
+    btn.style.color=active?'#D97736':'rgba(250,249,246,0.5)';
+    btn.style.borderColor=active?'rgba(217,119,54,0.6)':'rgba(255,255,255,0.1)';
+  });
+  renderD5All();
+}
+
+function filterD5Method(m){
+  d5Method=m;
+  document.querySelectorAll('.d5m-btn').forEach(btn=>{
+    const active=btn.id==='d5m-'+m;
+    btn.style.background=active?'rgba(217,119,54,0.18)':'transparent';
+    btn.style.color=active?'#D97736':'rgba(250,249,246,0.5)';
+    btn.style.borderColor=active?'rgba(217,119,54,0.6)':'rgba(255,255,255,0.1)';
+  });
+  renderD5All();
+}
+
+window.addEventListener('load',function(){ setTimeout(renderD5All,500); });
+</script>
+
+    <!-- Lower 2-card grid -->
+    <div class="work-grid">
+
+      <!-- Card 2: Excel Reporting -->
+      <div class="work-card">
+        <div class="work-card-visual">
+          <div class="excel-preview">
+            <div style="font-size:9px;color:rgba(100,200,100,0.6);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;font-family:'DM Sans',sans-serif;">Policy Records Tracker</div>
+            <div class="xl-row">
+              <div class="xl-cell header" style="flex:2;"></div>
+              <div class="xl-cell header"></div>
+              <div class="xl-cell header"></div>
+              <div class="xl-cell header"></div>
+            </div>
+            <div class="xl-row"><div class="xl-cell" style="flex:2;"></div><div class="xl-cell"></div><div class="xl-cell"></div><div class="xl-cell"></div></div>
+            <div class="xl-row"><div class="xl-cell" style="flex:2;"></div><div class="xl-cell"></div><div class="xl-cell"></div><div class="xl-cell"></div></div>
+            <div class="xl-row"><div class="xl-cell" style="flex:2;"></div><div class="xl-cell"></div><div class="xl-cell"></div><div class="xl-cell"></div></div>
+            <div class="xl-row"><div class="xl-cell" style="flex:2;"></div><div class="xl-cell"></div><div class="xl-cell"></div><div class="xl-cell"></div></div>
+            <div class="xl-chart">
+              <div class="xl-bar" style="height:40%;"></div>
+              <div class="xl-bar" style="height:75%;"></div>
+              <div class="xl-bar" style="height:55%;"></div>
+              <div class="xl-bar" style="height:90%;"></div>
+              <div class="xl-bar" style="height:65%;"></div>
+              <div class="xl-bar" style="height:35%;"></div>
+              <div class="xl-bar" style="height:80%;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="work-card-body">
+          <div class="work-type">Excel Reporting &amp; Analysis</div>
+          <h3>Insurance Policy Records Management</h3>
+          <p>Structured Excel workbooks built during the policy administration internship at Misr Insurance. Incorporated PivotTables for policy status summaries, VLOOKUP-based cross-referencing for compliance verification, and dynamic charts to track renewal cycles and risk classifications.</p>
+          <div class="work-tags">
+            <span class="work-tag">Excel</span>
+            <span class="work-tag">PivotTables</span>
+            <span class="work-tag">VLOOKUP</span>
+            <span class="work-tag">Data Validation</span>
+            <span class="work-tag">Compliance Reporting</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Process Documentation -->
+      <div class="work-card">
+        <div class="work-card-visual">
+          <div class="doc-preview">
+            <div class="doc-line title"></div>
+            <div style="height:4px;"></div>
+            <div class="doc-line med"></div>
+            <div class="doc-line short"></div>
+            <div class="doc-line med"></div>
+            <div style="height:8px;"></div>
+            <div class="doc-flow">
+              <div class="doc-node"></div>
+              <div class="doc-arrow">→</div>
+              <div class="doc-node"></div>
+              <div class="doc-arrow">→</div>
+              <div class="doc-node"></div>
+            </div>
+            <div style="height:8px;"></div>
+            <div class="doc-line"></div>
+            <div class="doc-line short"></div>
+            <div class="doc-line med"></div>
+            <div class="doc-line" style="width:60%;"></div>
+          </div>
+        </div>
+        <div class="work-card-body">
+          <div class="work-type">Process Documentation</div>
+          <h3>Insurance Workflow &amp; Operational Reports</h3>
+          <p>Structured internal reports and procedural documentation produced across three internship rotations, covering the underwriting review cycle, HR coordination workflows, and life insurance policy management — designed for handoff readiness across departments.</p>
+          <div class="work-tags">
+            <span class="work-tag">Microsoft Word</span>
+            <span class="work-tag">Workflow Mapping</span>
+            <span class="work-tag">Internal Reporting</span>
+            <span class="work-tag">Business Writing</span>
+            <span class="work-tag">SOP Documentation</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const ALL_DATA = {
+  employees: ['Ahmed K.','Sara M.','Omar F.','Nour A.','Karim B.','Hana S.','Tarek R.','Dina W.','Youssef T.'],
+  branches:  ['Cairo','Cairo','Cairo','Alex','Alex','Alex','Giza','Giza','Giza'],
+  jobs:      ['Sales Manager','Data Analyst','HR Specialist','Sales Manager','Data Analyst','HR Specialist','Sales Manager','Data Analyst','HR Specialist'],
+  salaries:  [18000,14000,12000,17000,13500,11500,16500,13000,12750],
+  sickHours: [8,12,6,10,15,9,7,11,14]
+};
+const BRANCH_COLORS = { Cairo:'#c8a855', Alex:'#2ab89a', Giza:'#c44b2f' };
+const JOB_COLORS = { 'Sales Manager':'#c8a855', 'Data Analyst':'#2ab89a', 'HR Specialist':'#c44b2f' };
+let activeBranch = 'All';
+let chartRefs = {};
+
+function getFiltered(branch) {
+  const idx = ALL_DATA.branches.map((b,i) => branch==='All'||b===branch ? i : -1).filter(i=>i>=0);
+  return {
+    employees: idx.map(i=>ALL_DATA.employees[i]),
+    branches:  idx.map(i=>ALL_DATA.branches[i]),
+    jobs:      idx.map(i=>ALL_DATA.jobs[i]),
+    salaries:  idx.map(i=>ALL_DATA.salaries[i]),
+    sickHours: idx.map(i=>ALL_DATA.sickHours[i])
+  };
+}
+
+function fmt(n) { return n.toLocaleString(); }
+
+function updateKPIs(d) {
+  const avg = Math.round(d.salaries.reduce((a,b)=>a+b,0)/d.salaries.length);
+  const total = d.salaries.reduce((a,b)=>a+b,0);
+  document.getElementById('kpi-avg').textContent = fmt(avg);
+  document.getElementById('kpi-emp').textContent = d.employees.length;
+  document.getElementById('kpi-total').textContent = fmt(total);
+}
+
+function mkChart(id, type, labels, datasets, opts) {
+  if (chartRefs[id]) { chartRefs[id].destroy(); }
+  const canvas = document.getElementById(id);
+  if (!canvas) return;
+  chartRefs[id] = new Chart(canvas, {
+    type, data: { labels, datasets },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: type==='pie'||type==='doughnut' ? {} : {
+        x: { ticks: { color:'rgba(250,249,246,0.45)', font:{size:10}, maxRotation:35, autoSkip:false }, grid:{color:'rgba(255,255,255,0.04)'} },
+        y: { ticks: { color:'rgba(250,249,246,0.45)', font:{size:10}, callback: v=>fmt(v) }, grid:{color:'rgba(255,255,255,0.06)'} }
+      },
+      ...opts
+    }
+  });
+}
+
+function renderAll() {
+  const d = getFiltered(activeBranch);
+  updateKPIs(d);
+
+  const empColors = d.branches.map(b=>BRANCH_COLORS[b]+'cc');
+
+  mkChart('ch-salary-emp','bar', d.employees,
+    [{ data: d.salaries, backgroundColor: empColors, borderRadius:3, borderSkipped:false }]);
+
+  const branchTotals = {};
+  d.branches.forEach((b,i)=>{ branchTotals[b]=(branchTotals[b]||0)+d.salaries[i]; });
+  const bLabels=Object.keys(branchTotals), bVals=Object.values(branchTotals);
+  mkChart('ch-salary-branch','doughnut', bLabels,
+    [{ data:bVals, backgroundColor:bLabels.map(b=>BRANCH_COLORS[b]+'dd'), borderWidth:0, hoverOffset:4 }],
+    { plugins:{ legend:{display:false} } });
+
+  const legend = document.getElementById('branch-legend');
+  if(legend) {
+    legend.innerHTML = bLabels.map((b,i)=>
+      `<span style="display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(250,249,246,0.55);font-family:'DM Sans',sans-serif;">
+        <span style="width:8px;height:8px;border-radius:2px;background:${BRANCH_COLORS[b]};"></span>${b} ${Math.round(bVals[i]/bVals.reduce((a,c)=>a+c,0)*100)}%
+      </span>`
+    ).join('');
+  }
+
+  mkChart('ch-sick-emp','bar', d.employees,
+    [{ data:d.sickHours, backgroundColor:empColors, borderRadius:3, borderSkipped:false }]);
+
+  const branchSick = {};
+  d.branches.forEach((b,i)=>{ branchSick[b]=(branchSick[b]||0)+d.sickHours[i]; });
+  const sLabels=Object.keys(branchSick);
+  mkChart('ch-sick-branch','bar', sLabels,
+    [{ data:Object.values(branchSick), backgroundColor:sLabels.map(b=>BRANCH_COLORS[b]+'cc'), borderRadius:3 }]);
+
+  const jobTotals = {};
+  d.jobs.forEach((j,i)=>{ jobTotals[j]=(jobTotals[j]||0)+d.salaries[i]; });
+  const jLabels=Object.keys(jobTotals);
+  mkChart('ch-salary-job','bar', jLabels,
+    [{ data:Object.values(jobTotals), backgroundColor:jLabels.map(j=>JOB_COLORS[j]+'cc'), borderRadius:3 }]);
+}
+
+function switchPage(n) {
+  document.getElementById('dash-page1').style.display = n===1?'block':'none';
+  document.getElementById('dash-page2').style.display = n===2?'block':'none';
+  document.getElementById('tab1').style.background = n===1?'rgba(184,147,58,0.25)':'transparent';
+  document.getElementById('tab1').style.color = n===1?'#c8a855':'rgba(250,249,246,0.45)';
+  document.getElementById('tab1').style.border = n===1?'none':'1px solid rgba(255,255,255,0.1)';
+  document.getElementById('tab2').style.background = n===2?'rgba(184,147,58,0.25)':'transparent';
+  document.getElementById('tab2').style.color = n===2?'#c8a855':'rgba(250,249,246,0.45)';
+  document.getElementById('tab2').style.border = n===2?'none':'1px solid rgba(255,255,255,0.1)';
+  setTimeout(renderAll, 50);
+}
+
+function filterBranch(branch) {
+  activeBranch = branch;
+  document.querySelectorAll('.bf-btn').forEach(b=>{
+    const active = b.id==='bf-'+branch;
+    b.style.background = active?'rgba(184,147,58,0.18)':'transparent';
+    b.style.color = active?'#c8a855':'rgba(250,249,246,0.5)';
+    b.style.borderColor = active?'rgba(184,147,58,0.5)':'rgba(255,255,255,0.1)';
+  });
+  renderAll();
+}
+
+window.addEventListener('load', function() {
+  setTimeout(renderAll, 100);
+});
+</script>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-label">Technical Skills</div>
+    <h2>What I Bring</h2>
+    <p class="section-intro">A blend of data tooling, office productivity, and business operations competencies — built through coursework and real internship environments.</p>
+    <div class="skills-section-grid">
+      <div class="skill-category">
+        <h4>Data &amp; Reporting</h4>
+        <div class="skill-bar-item">
+          <div class="skill-bar-label"><span>Microsoft Excel</span><span>Advanced</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-label"><span>Power BI</span><span>Proficient</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:72%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-label"><span>SQL Server &amp; Database Management</span><span>Proficient</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:68%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-label"><span>PivotTables &amp; VLOOKUP</span><span>Advanced</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-label"><span>Data Visualization</span><span>Proficient</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:75%"></div></div>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h4>Office Productivity</h4>
+        <div class="skill-bar-item">
+          <div class="skill-bar-label"><span>Microsoft Word</span><span>Advanced</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-label"><span>PowerPoint</span><span>Proficient</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:78%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-label"><span>Google Workspace</span><span>Working</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:70%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-label"><span>Outlook &amp; Email</span><span>Proficient</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width:82%"></div></div>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h4>Core Competencies</h4>
+        <div class="soft-skills">
+          <span class="soft-tag">Operations Coordination</span>
+          <span class="soft-tag">Records Management</span>
+          <span class="soft-tag">Process Documentation</span>
+          <span class="soft-tag">Risk Assessment (Insurance)</span>
+          <span class="soft-tag">Cross-functional Communication</span>
+          <span class="soft-tag">Regulatory Compliance</span>
+          <span class="soft-tag">Report Writing</span>
+          <span class="soft-tag">Time Management</span>
+          <span class="soft-tag">Arabic (Native)</span>
+          <span class="soft-tag">English (Professional)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-inner">
+    <div class="section-label">Education</div>
+    <h2>Academic Background</h2>
+    <p class="section-intro">Formal training in business administration with applied coursework spanning operations, finance, and strategy.</p>
+    <div class="edu-card">
+      <div class="edu-year">2022 – 2026</div>
+      <div>
+        <h3>Bachelor of Business Administration</h3>
+        <div class="edu-inst">Misr University for Science &amp; Technology (MUST) — Faculty of Business Administration</div>
+        <div class="course-pills">
+          <span class="course-pill">Organizational Behavior</span>
+          <span class="course-pill">Operations Management</span>
+          <span class="course-pill">Business Statistics</span>
+          <span class="course-pill">Financial Accounting</span>
+          <span class="course-pill">Strategic Management</span>
+          <span class="course-pill">Marketing Principles</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label">Get In Touch</div>
+    <h2>Let's Connect</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Open to opportunities in operations, data analytics, and business administration roles.</h3>
+        <p>Whether you're looking for a detail-oriented analyst, a motivated operations coordinator, or a data-driven business graduate — I'd be glad to hear from you. Feel free to reach out through any of the channels below.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.01 2.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Phone</div>
+              <div class="contact-item-val">01226467291</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-val">yousefsalahabbas25@gmail.com</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">LinkedIn</div>
+              <div class="contact-item-val"><a href="https://www.linkedin.com/in/yousef-salah-12742b411" style="color:var(--gold);text-decoration:none;">linkedin.com/in/yousef-salah</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Location</div>
+              <div class="contact-item-val">Benha, Egypt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="availability-card">
+        <div class="avail-status"><span class="avail-dot"></span>Available for opportunities</div>
+        <h4>What I'm looking for</h4>
+        <ul class="avail-list">
+          <li><span class="avail-check">✓</span>Operations Coordinator / Analyst roles</li>
+          <li><span class="avail-check">✓</span>Business Intelligence / Reporting positions</li>
+          <li><span class="avail-check">✓</span>Administrative &amp; Project Support roles</li>
+          <li><span class="avail-check">✓</span>Insurance, Finance, or Consulting sectors</li>
+          <li><span class="avail-check">✓</span>Full-time or internship opportunities</li>
+          <li><span class="avail-check">✓</span>Cairo, Giza, Qalyubia — or remote</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <span>Yousef Salah</span> — Business Administration &amp; Data Analytics Portfolio &nbsp;·&nbsp; Benha, Egypt</p>
+</footer>
+
+</body>
+</html>
